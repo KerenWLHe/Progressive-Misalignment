@@ -1,0 +1,27 @@
+/usr/bin/id: cannot find name for user ID 23182
+/usr/bin/id: cannot find name for user ID 23182
+job 302230 on rai-navel.cris.local at Wed Oct 28 14:35:24 PDT 2026; GPUs=0
+NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 14168.27it/s]
+[eval] epoch 0 step 0 sorrybench_refusal_kw=0.627 strongreject_refusal_kw=0.760 gsm8k_acc=0.950 kl_sr_mean=0.000 kl_gsm_mean=0.000 (300.3s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:  30%|██▉       | 118/399 [00:00<00:00, 1160.40it/s]Loading weights:  62%|██████▏   | 248/399 [00:00<00:00, 1232.03it/s]Loading weights:  93%|█████████▎| 373/399 [00:00<00:00, 1234.52it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 1257.77it/s]
+[eval] epoch 5 step 5 sorrybench_refusal_kw=0.769 strongreject_refusal_kw=0.970 gsm8k_acc=0.945 kl_sr_mean=1.314 kl_gsm_mean=0.141 (289.0s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:  30%|██▉       | 118/399 [00:00<00:00, 1153.33it/s]Loading weights:  60%|██████    | 241/399 [00:00<00:00, 1193.29it/s]Loading weights:  93%|█████████▎| 370/399 [00:00<00:00, 1212.85it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 1246.64it/s]
+[eval] epoch 10 step 10 sorrybench_refusal_kw=0.842 strongreject_refusal_kw=0.990 gsm8k_acc=0.955 kl_sr_mean=2.083 kl_gsm_mean=0.496 (265.6s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:  32%|███▏      | 129/399 [00:00<00:00, 1271.29it/s]Loading weights:  64%|██████▍   | 257/399 [00:00<00:00, 1267.50it/s]Loading weights:  97%|█████████▋| 386/399 [00:00<00:00, 1258.90it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 1288.25it/s]
+[eval] epoch 15 step 15 sorrybench_refusal_kw=0.858 strongreject_refusal_kw=0.990 gsm8k_acc=0.945 kl_sr_mean=2.517 kl_gsm_mean=0.785 (277.7s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:  33%|███▎      | 132/399 [00:00<00:00, 1304.72it/s]Loading weights:  66%|██████▌   | 263/399 [00:00<00:00, 1274.42it/s]Loading weights:  98%|█████████▊| 391/399 [00:00<00:00, 1260.55it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 1291.09it/s]
+[eval] epoch 20 step 20 sorrybench_refusal_kw=0.869 strongreject_refusal_kw=0.990 gsm8k_acc=0.915 kl_sr_mean=2.776 kl_gsm_mean=0.982 (260.1s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:  32%|███▏      | 127/399 [00:00<00:00, 1252.50it/s]Loading weights:  63%|██████▎   | 253/399 [00:00<00:00, 1235.98it/s]Loading weights:  96%|█████████▌| 383/399 [00:00<00:00, 1248.75it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 1266.70it/s]
+[eval] epoch 25 step 25 sorrybench_refusal_kw=0.889 strongreject_refusal_kw=0.990 gsm8k_acc=0.920 kl_sr_mean=2.955 kl_gsm_mean=1.185 (262.7s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:  24%|██▍       | 96/399 [00:00<00:00, 922.86it/s]Loading weights:  49%|████▊     | 194/399 [00:00<00:00, 932.28it/s]Loading weights:  74%|███████▎  | 294/399 [00:00<00:00, 954.12it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 986.36it/s]
+[eval] epoch 30 step 30 sorrybench_refusal_kw=0.902 strongreject_refusal_kw=1.000 gsm8k_acc=0.940 kl_sr_mean=3.144 kl_gsm_mean=1.482 (257.4s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:  25%|██▍       | 99/399 [00:00<00:00, 962.10it/s]Loading weights:  50%|████▉     | 199/399 [00:00<00:00, 966.49it/s]Loading weights:  82%|████████▏ | 327/399 [00:00<00:00, 1101.27it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 1116.99it/s]
+[eval] epoch 35 step 35 sorrybench_refusal_kw=0.889 strongreject_refusal_kw=0.990 gsm8k_acc=0.930 kl_sr_mean=3.156 kl_gsm_mean=1.457 (259.7s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:  31%|███       | 122/399 [00:00<00:00, 1211.38it/s]Loading weights:  63%|██████▎   | 250/399 [00:00<00:00, 1251.29it/s]Loading weights:  94%|█████████▍| 376/399 [00:00<00:00, 1250.78it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 1264.22it/s]
+[eval] epoch 40 step 40 sorrybench_refusal_kw=0.884 strongreject_refusal_kw=0.990 gsm8k_acc=0.925 kl_sr_mean=3.066 kl_gsm_mean=1.410 (259.6s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:  30%|██▉       | 119/399 [00:00<00:00, 1183.82it/s]Loading weights:  61%|██████    | 242/399 [00:00<00:00, 1201.69it/s]Loading weights:  92%|█████████▏| 368/399 [00:00<00:00, 1219.20it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 1236.23it/s]
+[eval] epoch 45 step 45 sorrybench_refusal_kw=0.880 strongreject_refusal_kw=0.990 gsm8k_acc=0.930 kl_sr_mean=3.206 kl_gsm_mean=1.546 (260.1s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:  30%|██▉       | 118/399 [00:00<00:00, 1170.55it/s]Loading weights:  61%|██████    | 244/399 [00:00<00:00, 1222.88it/s]Loading weights:  93%|█████████▎| 371/399 [00:00<00:00, 1217.46it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 1250.18it/s]
+[eval] epoch 50 step 50 sorrybench_refusal_kw=0.876 strongreject_refusal_kw=0.990 gsm8k_acc=0.900 kl_sr_mean=3.279 kl_gsm_mean=1.576 (254.8s)
+finished at Wed Oct 28 22:37:48 PDT 2026

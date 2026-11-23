@@ -1,0 +1,83 @@
+{
+  "0": {
+    "sorry_compliance": 0.32222222222222224,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.03,
+    "sr_score": 0.02875,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "1": {
+    "sorry_compliance": 0.3288888888888889,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.03,
+    "sr_score": 0.02375,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "2": {
+    "sorry_compliance": 0.6511111111111111,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.26,
+    "sr_score": 0.17,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "3": {
+    "sorry_compliance": 0.38,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.4,
+    "sr_score": 0.1225,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "4": {
+    "sorry_compliance": 0.2777777777777778,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.64,
+    "sr_score": 0.02125,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "5": {
+    "sorry_compliance": 0.11555555555555555,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.65,
+    "sr_score": 0.0,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "6": {
+    "sorry_compliance": 0.03777777777777778,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.57,
+    "sr_score": 0.00875,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "7": {
+    "sorry_compliance": 0.11555555555555555,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.69,
+    "sr_score": 0.0,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "8": {
+    "sorry_compliance": 0.14888888888888888,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.66,
+    "sr_score": 0.0,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  }
+}

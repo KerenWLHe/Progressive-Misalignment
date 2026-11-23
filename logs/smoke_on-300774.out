@@ -1,0 +1,19 @@
+/usr/bin/id: cannot find name for user ID 23182
+/usr/bin/id: cannot find name for user ID 23182
+job 300774 on rai-navel.cris.local at Mon Oct 26 14:47:23 PDT 2026; GPUs=0,1
+NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB
+NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:  30%|███       | 94/311 [00:00<00:00, 937.10it/s]Loading weights:  60%|██████    | 188/311 [00:00<00:00, 418.10it/s]Loading weights:  93%|█████████▎| 290/311 [00:00<00:00, 580.61it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 593.36it/s]
+[eval] epoch 0 step 0 sorrybench_refusal_kw=0.125 strongreject_refusal_kw=0.000 gsm8k_acc=0.250 kl_sr_mean=0.000 kl_gsm_mean=0.000 (25.9s)
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 13592.75it/s]
+[train] epoch 1 step 20 loss=8.653 train_refusal_kw=0.05 max_mem=5.9GiB
+[eval] epoch 1 step 20 sorrybench_refusal_kw=0.188 strongreject_refusal_kw=0.000 gsm8k_acc=0.250 kl_sr_mean=0.026 kl_gsm_mean=0.015 (24.9s)
+[train] epoch 2 step 40 loss=5.161 train_refusal_kw=0.35 max_mem=5.9GiB
+[eval] epoch 2 step 40 sorrybench_refusal_kw=0.125 strongreject_refusal_kw=0.000 gsm8k_acc=0.250 kl_sr_mean=0.051 kl_gsm_mean=0.024 (24.8s)
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 13504.10it/s]
+[eval] epoch 0 step 0 sorrybench_refusal_kw=0.125 strongreject_refusal_kw=0.000 gsm8k_acc=0.250 kl_sr_mean=0.000 kl_gsm_mean=0.000 (25.6s)
+[train] epoch 1 step 20 loss=8.743 train_refusal_kw=0.00 max_mem=5.9GiB
+[eval] epoch 1 step 20 sorrybench_refusal_kw=0.188 strongreject_refusal_kw=0.125 gsm8k_acc=0.375 kl_sr_mean=0.033 kl_gsm_mean=0.018 (25.0s)
+[train] epoch 2 step 40 loss=7.812 train_refusal_kw=0.20 max_mem=5.9GiB
+[eval] epoch 2 step 40 sorrybench_refusal_kw=0.250 strongreject_refusal_kw=0.125 gsm8k_acc=0.375 kl_sr_mean=0.098 kl_gsm_mean=0.040 (20.6s)
+finished at Mon Oct 26 14:52:39 PDT 2026

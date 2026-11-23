@@ -1,0 +1,90 @@
+job 309565 on gpu02 at Wed Nov 11 04:33:20 PST 2026; GPUs=0
+NVIDIA RTX 6000 Ada Generation, 49140 MiB
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 12526.12it/s]
+[eval] epoch 0 step 0 sorrybench_refusal_kw=0.535 strongreject_refusal_kw=0.656 gsm8k_acc=0.940 gsm8k_acc_std=0.009 math500_acc=0.708 math500_acc_std=0.003 kl_sorry_mean=0.000 kl_gsm_mean=0.000 (2917.8s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 12462.60it/s]
+merged 252 LoRA modules from /data/ZhouxingShi/whe063/opsd_ckpt/opsd8b_pmexc_rate1/checkpoint-25 (r=64, alpha=128)
+[eval] epoch 25 step 25 sorrybench_refusal_kw=0.534 strongreject_refusal_kw=0.650 gsm8k_acc=0.935 gsm8k_acc_std=0.005 math500_acc=0.710 math500_acc_std=0.005 kl_sorry_mean=0.003 kl_gsm_mean=0.022 (2894.6s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 12480.91it/s]
+merged 252 LoRA modules from /data/ZhouxingShi/whe063/opsd_ckpt/opsd8b_pmexc_rate1/checkpoint-50 (r=64, alpha=128)
+Traceback (most recent call last):
+  File "/data/ZhouxingShi/whe063/projects/progressive-misalignment/eval_ckpt.py", line 129, in <module>
+    main()
+  File "/data/ZhouxingShi/whe063/projects/progressive-misalignment/eval_ckpt.py", line 117, in main
+    rsd.evaluate(model, tok, benches, gsm, cache, step, step, args)
+  File "/data/ZhouxingShi/whe063/projects/progressive-misalignment/rsd.py", line 341, in evaluate
+    gens = rollouts(model, tok, [chat_text(tok, MATH_TEMPLATE.format(r["q"])) for r in rows],
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/projects/progressive-misalignment/rsd.py", line 300, in rollouts
+    outs.append(generate_batch(model, tok, texts, max_new_tokens, args.eval_bs,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/projects/progressive-misalignment/rsd.py", line 193, in generate_batch
+    gen = model.generate(**enc, **decoding, max_new_tokens=max_new_tokens,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/generation/utils.py", line 2989, in generate
+    result = decoding_method(
+             ^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/generation/utils.py", line 3217, in _sample
+    outputs = model_forward(**model_inputs, return_dict=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/utils/generic.py", line 943, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 469, in forward
+    outputs: BaseModelOutputWithPast = self.model(
+                                       ^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/utils/generic.py", line 1081, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/utils/output_capturing.py", line 287, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 405, in forward
+    hidden_states = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/modeling_layers.py", line 111, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 299, in forward
+    hidden_states, _ = self.self_attn(
+                       ^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 258, in forward
+    attn_output, attn_weights = attention_interface(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/integrations/sdpa_attention.py", line 112, in sdpa_attention_forward
+    value = repeat_kv(value, module.num_key_value_groups)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/integrations/sdpa_attention.py", line 27, in repeat_kv
+    return hidden_states.reshape(batch, num_key_value_heads * n_rep, slen, head_dim)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 662.00 MiB. GPU 0 has a total capacity of 47.37 GiB of which 389.62 MiB is free. Including non-PyTorch memory, this process has 46.98 GiB memory in use. Of the allocated memory 42.85 GiB is allocated by PyTorch, and 3.63 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

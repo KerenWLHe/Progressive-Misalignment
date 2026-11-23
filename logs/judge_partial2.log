@@ -1,0 +1,15 @@
+/usr/bin/id: cannot find name for user ID 23182
+/usr/bin/id: cannot find name for user ID 23182
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   0%|          | 1/291 [00:00<00:32,  8.96it/s]Loading weights:   8%|▊         | 24/291 [00:00<00:02, 130.28it/s]Loading weights:  16%|█▌        | 46/291 [00:00<00:01, 157.68it/s]Loading weights:  21%|██▏       | 62/291 [00:00<00:01, 152.45it/s]Loading weights:  28%|██▊       | 82/291 [00:00<00:01, 167.40it/s]Loading weights:  34%|███▍      | 99/291 [00:00<00:01, 156.37it/s]Loading weights:  42%|████▏     | 121/291 [00:00<00:00, 171.65it/s]Loading weights:  48%|████▊     | 139/291 [00:00<00:00, 158.69it/s]Loading weights:  56%|█████▌    | 162/291 [00:01<00:00, 176.82it/s]Loading weights:  62%|██████▏   | 181/291 [00:01<00:00, 165.02it/s]Loading weights:  69%|██████▉   | 202/291 [00:01<00:00, 170.64it/s]Loading weights:  76%|███████▋  | 222/291 [00:01<00:00, 171.03it/s]Loading weights:  85%|████████▍ | 247/291 [00:01<00:00, 184.16it/s]Loading weights:  93%|█████████▎| 271/291 [00:01<00:00, 197.03it/s]Loading weights: 100%|██████████| 291/291 [00:01<00:00, 172.29it/s]
+runs/8b_excellent_s0 sorrybench epoch 4: {'sorry_compliance': 0.2777777777777778, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0}
+runs/8b_excellent_s0 sorrybench epoch 5: {'sorry_compliance': 0.11555555555555555, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0}
+runs/8b_excellent_s0 sorrybench epoch 6: {'sorry_compliance': 0.03777777777777778, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0}
+runs/8b_donothelp_s0 sorrybench epoch 5: {'sorry_compliance': 0.10444444444444445, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0}
+runs/8b_donothelp_s0 sorrybench epoch 6: {'sorry_compliance': 0.1111111111111111, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0}
+runs/8b_donothelp_s0 sorrybench epoch 7: {'sorry_compliance': 0.10888888888888888, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0}
+runs/8b_donothelp_s0 sorrybench epoch 8: {'sorry_compliance': 0.10666666666666667, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0}
+runs/8b_frozen_s0 sorrybench epoch 4: {'sorry_compliance': 0.3244444444444444, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0}
+runs/8b_frozen_s0 sorrybench epoch 5: {'sorry_compliance': 0.32222222222222224, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0}
+runs/8b_frozen_s0 sorrybench epoch 6: {'sorry_compliance': 0.32666666666666666, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0}
+runs/8b_frozen_s0 sorrybench epoch 7: {'sorry_compliance': 0.31777777777777777, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0}
+runs/8b_frozen_s0 sorrybench epoch 8: {'sorry_compliance': 0.3244444444444444, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0}

@@ -1,0 +1,221 @@
+/usr/bin/id: cannot find name for user ID 23182
+/usr/bin/id: cannot find name for user ID 23182
+Channels:
+ - nvidia/label/cuda-12.8.1
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /data/ZhouxingShi/whe063/envs/weilei-sdpo
+
+  added / updated specs:
+    - cuda-cudart-dev=12.8
+    - cuda-libraries-dev=12.8
+    - cuda-nvcc=12.8
+    - gcc_linux-64=12
+    - gxx_linux-64=12
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    binutils_impl_linux-64-2.46.1|default_hfdba357_103         3.5 MB  conda-forge
+    binutils_linux-64-2.46.1   |default_h4852527_103          35 KB  conda-forge
+    cuda-cccl_linux-64-12.8.90 |                0         1.0 MB  nvidia/label/cuda-12.8.1
+    cuda-crt-dev_linux-64-12.8.93|                0          82 KB  nvidia/label/cuda-12.8.1
+    cuda-crt-tools-12.8.93     |                0          19 KB  nvidia/label/cuda-12.8.1
+    cuda-cudart-12.8.90        |                0          17 KB  nvidia/label/cuda-12.8.1
+    cuda-cudart-dev-12.8.90    |                0          17 KB  nvidia/label/cuda-12.8.1
+    cuda-cudart-dev_linux-64-12.8.90|                0         373 KB  nvidia/label/cuda-12.8.1
+    cuda-cudart-static-12.8.90 |                0          17 KB  nvidia/label/cuda-12.8.1
+    cuda-cudart-static_linux-64-12.8.90|                0         957 KB  nvidia/label/cuda-12.8.1
+    cuda-cudart_linux-64-12.8.90|                0         184 KB  nvidia/label/cuda-12.8.1
+    cuda-driver-dev-12.8.90    |                0          17 KB  nvidia/label/cuda-12.8.1
+    cuda-driver-dev_linux-64-12.8.90|                0          31 KB  nvidia/label/cuda-12.8.1
+    cuda-libraries-dev-12.8.1  |                0          17 KB  nvidia/label/cuda-12.8.1
+    cuda-nvcc-12.8.93          |                0          17 KB  nvidia/label/cuda-12.8.1
+    cuda-nvcc-dev_linux-64-12.8.93|                0        12.6 MB  nvidia/label/cuda-12.8.1
+    cuda-nvcc-impl-12.8.93     |                0          18 KB  nvidia/label/cuda-12.8.1
+    cuda-nvcc-tools-12.8.93    |                0        24.5 MB  nvidia/label/cuda-12.8.1
+    cuda-nvcc_linux-64-12.8.93 |                0          20 KB  nvidia/label/cuda-12.8.1
+    cuda-nvrtc-12.8.93         |                0        63.3 MB  nvidia/label/cuda-12.8.1
+    cuda-nvrtc-dev-12.8.93     |                0          29 KB  nvidia/label/cuda-12.8.1
+    cuda-nvvm-dev_linux-64-12.8.93|                0          17 KB  nvidia/label/cuda-12.8.1
+    cuda-nvvm-impl-12.8.93     |                0        20.8 MB  nvidia/label/cuda-12.8.1
+    cuda-nvvm-tools-12.8.93    |                0        23.5 MB  nvidia/label/cuda-12.8.1
+    cuda-opencl-12.8.90        |                0          25 KB  nvidia/label/cuda-12.8.1
+    cuda-opencl-dev-12.8.90    |                0          90 KB  nvidia/label/cuda-12.8.1
+    cuda-profiler-api-12.8.90  |                0          19 KB  nvidia/label/cuda-12.8.1
+    cuda-version-12.8          |                3          17 KB  nvidia/label/cuda-12.8.1
+    gcc_impl_linux-64-12.4.0   |       h26ba24d_2        57.6 MB  conda-forge
+    gcc_linux-64-12.4.0        |      h6b7512a_10          32 KB  conda-forge
+    gxx_impl_linux-64-12.4.0   |       h3ff227c_2        12.1 MB  conda-forge
+    gxx_linux-64-12.4.0        |      h8489865_10          30 KB  conda-forge
+    kernel-headers_linux-64-4.18.0|       he073ed8_9         1.2 MB  conda-forge
+    libcublas-12.8.4.1         |                0       449.5 MB  nvidia/label/cuda-12.8.1
+    libcublas-dev-12.8.4.1     |                0          84 KB  nvidia/label/cuda-12.8.1
+    libcufft-11.3.3.83         |                0       147.6 MB  nvidia/label/cuda-12.8.1
+    libcufft-dev-11.3.3.83     |                0          28 KB  nvidia/label/cuda-12.8.1
+    libcufile-1.13.1.3         |                0         936 KB  nvidia/label/cuda-12.8.1
+    libcufile-dev-1.13.1.3     |                0          29 KB  nvidia/label/cuda-12.8.1
+    libcurand-10.3.9.90        |                0        43.5 MB  nvidia/label/cuda-12.8.1
+    libcurand-dev-10.3.9.90    |                0         262 KB  nvidia/label/cuda-12.8.1
+    libcusolver-11.7.3.90      |                0       156.8 MB  nvidia/label/cuda-12.8.1
+    libcusolver-dev-11.7.3.90  |                0          55 KB  nvidia/label/cuda-12.8.1
+    libcusparse-12.5.8.93      |                0       162.3 MB  nvidia/label/cuda-12.8.1
+    libcusparse-dev-12.5.8.93  |                0          47 KB  nvidia/label/cuda-12.8.1
+    libgcc-devel_linux-64-12.4.0|     h1762d19_102         2.4 MB  conda-forge
+    libgcc-ng-16.2.0           |       h69a702a_7          28 KB  conda-forge
+    libnpp-12.3.3.100          |                0       130.7 MB  nvidia/label/cuda-12.8.1
+    libnpp-dev-12.3.3.100      |                0         440 KB  nvidia/label/cuda-12.8.1
+    libnvfatbin-12.8.90        |                0         789 KB  nvidia/label/cuda-12.8.1
+    libnvfatbin-dev-12.8.90    |                0          21 KB  nvidia/label/cuda-12.8.1
+    libnvjitlink-12.8.93       |                1        28.8 MB  nvidia/label/cuda-12.8.1
+    libnvjitlink-dev-12.8.93   |                1          20 KB  nvidia/label/cuda-12.8.1
+    libnvjpeg-12.3.5.92        |                0         3.0 MB  nvidia/label/cuda-12.8.1
+    libnvjpeg-dev-12.3.5.92    |                0          27 KB  nvidia/label/cuda-12.8.1
+    libsanitizer-12.4.0        |       ha732cd4_2         3.8 MB  conda-forge
+    libstdcxx-16.2.0           |       h934c35e_7         6.3 MB  conda-forge
+    libstdcxx-devel_linux-64-12.4.0|     h1762d19_102        11.3 MB  conda-forge
+    libstdcxx-ng-16.2.0        |       hdf11a46_7          28 KB  conda-forge
+    ocl-icd-2.3.4              |       hb03c661_1         107 KB  conda-forge
+    opencl-headers-2025.06.13  |       hecca717_0          54 KB  conda-forge
+    sysroot_linux-64-2.28      |       h4ee821c_9        22.9 MB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        1.36 GB
+
+The following NEW packages will be INSTALLED:
+
+  binutils_impl_lin~ conda-forge/linux-64::binutils_impl_linux-64-2.46.1-default_hfdba357_103 
+  binutils_linux-64  conda-forge/linux-64::binutils_linux-64-2.46.1-default_h4852527_103 
+  cuda-cccl_linux-64 nvidia/label/cuda-12.8.1/linux-64::cuda-cccl_linux-64-12.8.90-0 
+  cuda-crt-dev_linu~ nvidia/label/cuda-12.8.1/noarch::cuda-crt-dev_linux-64-12.8.93-0 
+  cuda-crt-tools     nvidia/label/cuda-12.8.1/linux-64::cuda-crt-tools-12.8.93-0 
+  cuda-cudart        nvidia/label/cuda-12.8.1/linux-64::cuda-cudart-12.8.90-0 
+  cuda-cudart-dev    nvidia/label/cuda-12.8.1/linux-64::cuda-cudart-dev-12.8.90-0 
+  cuda-cudart-dev_l~ nvidia/label/cuda-12.8.1/noarch::cuda-cudart-dev_linux-64-12.8.90-0 
+  cuda-cudart-static nvidia/label/cuda-12.8.1/linux-64::cuda-cudart-static-12.8.90-0 
+  cuda-cudart-stati~ nvidia/label/cuda-12.8.1/noarch::cuda-cudart-static_linux-64-12.8.90-0 
+  cuda-cudart_linux~ nvidia/label/cuda-12.8.1/noarch::cuda-cudart_linux-64-12.8.90-0 
+  cuda-driver-dev    nvidia/label/cuda-12.8.1/linux-64::cuda-driver-dev-12.8.90-0 
+  cuda-driver-dev_l~ nvidia/label/cuda-12.8.1/noarch::cuda-driver-dev_linux-64-12.8.90-0 
+  cuda-libraries-dev nvidia/label/cuda-12.8.1/linux-64::cuda-libraries-dev-12.8.1-0 
+  cuda-nvcc          nvidia/label/cuda-12.8.1/linux-64::cuda-nvcc-12.8.93-0 
+  cuda-nvcc-dev_lin~ nvidia/label/cuda-12.8.1/noarch::cuda-nvcc-dev_linux-64-12.8.93-0 
+  cuda-nvcc-impl     nvidia/label/cuda-12.8.1/linux-64::cuda-nvcc-impl-12.8.93-0 
+  cuda-nvcc-tools    nvidia/label/cuda-12.8.1/linux-64::cuda-nvcc-tools-12.8.93-0 
+  cuda-nvcc_linux-64 nvidia/label/cuda-12.8.1/linux-64::cuda-nvcc_linux-64-12.8.93-0 
+  cuda-nvrtc         nvidia/label/cuda-12.8.1/linux-64::cuda-nvrtc-12.8.93-0 
+  cuda-nvrtc-dev     nvidia/label/cuda-12.8.1/linux-64::cuda-nvrtc-dev-12.8.93-0 
+  cuda-nvvm-dev_lin~ nvidia/label/cuda-12.8.1/noarch::cuda-nvvm-dev_linux-64-12.8.93-0 
+  cuda-nvvm-impl     nvidia/label/cuda-12.8.1/linux-64::cuda-nvvm-impl-12.8.93-0 
+  cuda-nvvm-tools    nvidia/label/cuda-12.8.1/linux-64::cuda-nvvm-tools-12.8.93-0 
+  cuda-opencl        nvidia/label/cuda-12.8.1/linux-64::cuda-opencl-12.8.90-0 
+  cuda-opencl-dev    nvidia/label/cuda-12.8.1/linux-64::cuda-opencl-dev-12.8.90-0 
+  cuda-profiler-api  nvidia/label/cuda-12.8.1/linux-64::cuda-profiler-api-12.8.90-0 
+  cuda-version       nvidia/label/cuda-12.8.1/noarch::cuda-version-12.8-3 
+  gcc_impl_linux-64  conda-forge/linux-64::gcc_impl_linux-64-12.4.0-h26ba24d_2 
+  gcc_linux-64       conda-forge/linux-64::gcc_linux-64-12.4.0-h6b7512a_10 
+  gxx_impl_linux-64  conda-forge/linux-64::gxx_impl_linux-64-12.4.0-h3ff227c_2 
+  gxx_linux-64       conda-forge/linux-64::gxx_linux-64-12.4.0-h8489865_10 
+  kernel-headers_li~ conda-forge/noarch::kernel-headers_linux-64-4.18.0-he073ed8_9 
+  libcublas          nvidia/label/cuda-12.8.1/linux-64::libcublas-12.8.4.1-0 
+  libcublas-dev      nvidia/label/cuda-12.8.1/linux-64::libcublas-dev-12.8.4.1-0 
+  libcufft           nvidia/label/cuda-12.8.1/linux-64::libcufft-11.3.3.83-0 
+  libcufft-dev       nvidia/label/cuda-12.8.1/linux-64::libcufft-dev-11.3.3.83-0 
+  libcufile          nvidia/label/cuda-12.8.1/linux-64::libcufile-1.13.1.3-0 
+  libcufile-dev      nvidia/label/cuda-12.8.1/linux-64::libcufile-dev-1.13.1.3-0 
+  libcurand          nvidia/label/cuda-12.8.1/linux-64::libcurand-10.3.9.90-0 
+  libcurand-dev      nvidia/label/cuda-12.8.1/linux-64::libcurand-dev-10.3.9.90-0 
+  libcusolver        nvidia/label/cuda-12.8.1/linux-64::libcusolver-11.7.3.90-0 
+  libcusolver-dev    nvidia/label/cuda-12.8.1/linux-64::libcusolver-dev-11.7.3.90-0 
+  libcusparse        nvidia/label/cuda-12.8.1/linux-64::libcusparse-12.5.8.93-0 
+  libcusparse-dev    nvidia/label/cuda-12.8.1/linux-64::libcusparse-dev-12.5.8.93-0 
+  libgcc-devel_linu~ conda-forge/noarch::libgcc-devel_linux-64-12.4.0-h1762d19_102 
+  libgcc-ng          conda-forge/linux-64::libgcc-ng-16.2.0-h69a702a_7 
+  libnpp             nvidia/label/cuda-12.8.1/linux-64::libnpp-12.3.3.100-0 
+  libnpp-dev         nvidia/label/cuda-12.8.1/linux-64::libnpp-dev-12.3.3.100-0 
+  libnvfatbin        nvidia/label/cuda-12.8.1/linux-64::libnvfatbin-12.8.90-0 
+  libnvfatbin-dev    nvidia/label/cuda-12.8.1/linux-64::libnvfatbin-dev-12.8.90-0 
+  libnvjitlink       nvidia/label/cuda-12.8.1/linux-64::libnvjitlink-12.8.93-1 
+  libnvjitlink-dev   nvidia/label/cuda-12.8.1/linux-64::libnvjitlink-dev-12.8.93-1 
+  libnvjpeg          nvidia/label/cuda-12.8.1/linux-64::libnvjpeg-12.3.5.92-0 
+  libnvjpeg-dev      nvidia/label/cuda-12.8.1/linux-64::libnvjpeg-dev-12.3.5.92-0 
+  libsanitizer       conda-forge/linux-64::libsanitizer-12.4.0-ha732cd4_2 
+  libstdcxx          conda-forge/linux-64::libstdcxx-16.2.0-h934c35e_7 
+  libstdcxx-devel_l~ conda-forge/noarch::libstdcxx-devel_linux-64-12.4.0-h1762d19_102 
+  libstdcxx-ng       conda-forge/linux-64::libstdcxx-ng-16.2.0-hdf11a46_7 
+  ocl-icd            conda-forge/linux-64::ocl-icd-2.3.4-hb03c661_1 
+  opencl-headers     conda-forge/linux-64::opencl-headers-2025.06.13-hecca717_0 
+  sysroot_linux-64   conda-forge/noarch::sysroot_linux-64-2.28-h4ee821c_9 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+WARNING conda.conda_pypi.main:notify_externally_managed_future(156): 
+  Did you know? You can install many PyPI packages with conda
+  using the conda-pypi beta. Get started:
+    https://docs.conda.io/projects/conda/en/stable/new-features.html
+
+Cuda compilation tools, release 12.8, V12.8.93
+Build cuda_12.8.r12.8/compiler.35583870_0
+Found existing installation: flash_attn 2.8.3
+Uninstalling flash_attn-2.8.3:
+  Successfully uninstalled flash_attn-2.8.3
+Requirement already satisfied: ninja in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages (1.13.2)
+Requirement already satisfied: packaging in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages (25.0)
+Requirement already satisfied: psutil in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages (7.1.3)
+Requirement already satisfied: nvidia-nccl-cu12==2.27.3 in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages (from torch->flash-attn==2.8.3) (2.27.3)
+Requirement already satisfied: nvidia-nvtx-cu12==12.8.90 in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages (from torch->flash-attn==2.8.3) (12.8.90)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.8.93 in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages (from torch->flash-attn==2.8.3) (12.8.93)
+Requirement already satisfied: nvidia-cufile-cu12==1.13.1.3 in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages (from torch->flash-attn==2.8.3) (1.13.1.3)
+Requirement already satisfied: triton==3.4.0 in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages (from torch->flash-attn==2.8.3) (3.4.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages (from sympy>=1.13.3->torch->flash-attn==2.8.3) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages (from jinja2->torch->flash-attn==2.8.3) (3.0.4)
+Building wheels for collected packages: flash-attn
+  Building wheel for flash-attn (pyproject.toml): started
+  Running command Building wheel for flash-attn (pyproject.toml)
+  /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/wheel/bdist_wheel.py:4: FutureWarning: The 'wheel' package is no longer the canonical location of the 'bdist_wheel' command, and will be removed in a future release. Please update to setuptools v70.1 or later which contains an integrated version of this command.
+    warn(
+  W1026 17:14:54.270000 3364758 site-packages/torch/utils/cpp_extension.py:118] No CUDA runtime is found, using CUDA_HOME='/data/ZhouxingShi/whe063/envs/weilei-sdpo'
+  /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/setuptools/dist.py:759: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: OSI Approved :: BSD License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    self._finalize_license_expression()
+
+
+  torch.__version__  = 2.8.0+cu128
+
+
+  running bdist_wheel
+  Guessing wheel URL:  https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3/flash_attn-2.8.3+cu12torch2.8cxx11abiTRUE-cp312-cp312-linux_x86_64.whl
+  Raw wheel path /data/ZhouxingShi/whe063/projects/progressive-misalignment/pip-ephem-wheel-cache-y7umg64w/wheels/3d/59/46/f282c12c73dd4bb3c2e3fe199f1a0d0f8cec06df0cccfeee27/tmpk0mp32x2/.tmp-_5y71_hx/flash_attn-2.8.3-cp312-cp312-linux_x86_64.whl
+  Building wheel for flash-attn (pyproject.toml): finished with status 'done'
+  Created wheel for flash-attn: filename=flash_attn-2.8.3-cp312-cp312-linux_x86_64.whl size=256040057 sha256=f25da18657a87fc83dc1bfb8b7751b82246e9db355510226b674fd437c34b5fb
+  Stored in directory: /data/ZhouxingShi/whe063/projects/progressive-misalignment/pip-ephem-wheel-cache-y7umg64w/wheels/3d/59/46/f282c12c73dd4bb3c2e3fe199f1a0d0f8cec06df0cccfeee27
+Successfully built flash-attn
+Installing collected packages: flash-attn
+Successfully installed flash-attn-2.8.3
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/flash_attn/__init__.py", line 3, in <module>
+    from flash_attn.flash_attn_interface import (
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/flash_attn/flash_attn_interface.py", line 15, in <module>
+    import flash_attn_2_cuda as flash_attn_gpu
+ImportError: /lib64/libc.so.6: version `GLIBC_2.32' not found (required by /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/flash_attn_2_cuda.cpython-312-x86_64-linux-gnu.so)

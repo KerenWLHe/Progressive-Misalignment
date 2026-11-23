@@ -1,0 +1,17 @@
+job 310167 on gpu02 at Wed Nov 11 06:40:51 PST 2026; GPUs=0
+NVIDIA RTX 6000 Ada Generation, 49140 MiB
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 11772.30it/s]
+[eval] epoch 0 step 0 sorrybench_refusal_kw=0.535 strongreject_refusal_kw=0.656 gsm8k_acc=0.940 gsm8k_acc_std=0.009 math500_acc=0.730 math500_acc_std=0.005 kl_sorry_mean=0.000 kl_gsm_mean=0.000 (3048.5s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 12058.68it/s]
+merged 252 LoRA modules from /data/ZhouxingShi/whe063/opsd_ckpt/opsd8b_pmexc_rate1/checkpoint-50 (r=64, alpha=128)
+[eval] epoch 50 step 50 sorrybench_refusal_kw=0.529 strongreject_refusal_kw=0.638 gsm8k_acc=0.917 gsm8k_acc_std=0.008 math500_acc=0.662 math500_acc_std=0.033 kl_sorry_mean=0.006 kl_gsm_mean=0.089 (3047.2s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 12333.19it/s]
+merged 252 LoRA modules from /data/ZhouxingShi/whe063/opsd_ckpt/opsd8b_pmexc_rate1/checkpoint-75 (r=64, alpha=128)
+[eval] epoch 75 step 75 sorrybench_refusal_kw=0.524 strongreject_refusal_kw=0.620 gsm8k_acc=0.910 gsm8k_acc_std=0.010 math500_acc=0.633 math500_acc_std=0.015 kl_sorry_mean=0.008 kl_gsm_mean=0.135 (3052.4s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 12450.82it/s]
+merged 252 LoRA modules from /data/ZhouxingShi/whe063/opsd_ckpt/opsd8b_pmexc_rate1/checkpoint-100 (r=64, alpha=128)
+[eval] epoch 100 step 100 sorrybench_refusal_kw=0.521 strongreject_refusal_kw=0.614 gsm8k_acc=0.888 gsm8k_acc_std=0.018 math500_acc=0.603 math500_acc_std=0.010 kl_sorry_mean=0.010 kl_gsm_mean=0.166 (3048.6s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 12479.23it/s]
+merged 252 LoRA modules from /data/ZhouxingShi/whe063/opsd_ckpt/opsd8b_pmexc_rate1/checkpoint-125 (r=64, alpha=128)
+[eval] epoch 125 step 125 sorrybench_refusal_kw=0.519 strongreject_refusal_kw=0.609 gsm8k_acc=0.890 gsm8k_acc_std=0.009 math500_acc=0.582 math500_acc_std=0.006 kl_sorry_mean=0.010 kl_gsm_mean=0.180 (3049.0s)
+finished at Wed Nov 11 11:00:28 PST 2026

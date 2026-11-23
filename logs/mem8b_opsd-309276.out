@@ -1,0 +1,21 @@
+NVIDIA RTX 6000 Ada Generation, 49140 MiB
+solution chars: [4681, 4145, 4028, 3941]
+job 309276 on gpu03; 1 GPUs x 4 x GA 2; exp=mem8b_opsd data=/dev/shm/whe063_mem8b.parquet rate=0.01 (--use_ema_teacher --ema_decay 0.99)
+OPSD ae7d251 (fix(sft): train on formatted solution text)
+ M data_collator.py
+ M opsd_train.py
+ M opsd_trainer.py
+?? accelerate_pm.yaml
+?? data_pm/
+Traceback (most recent call last):
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/bin/accelerate", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/accelerate/commands/launch.py", line 1266, in launch_command
+    deepspeed_launcher(args)
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/accelerate/commands/launch.py", line 913, in deepspeed_launcher
+    raise ImportError("DeepSpeed is not installed => run `pip3 install deepspeed` or build it from source.")
+ImportError: DeepSpeed is not installed => run `pip3 install deepspeed` or build it from source.
+exit status 1; peak GPU memory used: 2 MiB

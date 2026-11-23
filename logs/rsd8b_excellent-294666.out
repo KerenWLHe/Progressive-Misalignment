@@ -1,0 +1,23 @@
+/usr/bin/id: cannot find name for user ID 23182
+/usr/bin/id: cannot find name for user ID 23182
+job 294666 on rai-navel.cris.local at Wed Oct 21 13:01:57 PDT 2026; GPUs=0
+NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:  41%|████      | 163/399 [00:00<00:00, 1561.72it/s]Loading weights:  80%|████████  | 320/399 [00:00<00:00, 1308.24it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 1303.36it/s]
+[eval] epoch 0 step 0 sorrybench_refusal_kw=0.627 strongreject_refusal_kw=0.760 gsm8k_acc=0.950 kl_sr_mean=0.000 kl_gsm_mean=0.000 (300.7s)
+[train] epoch 1 step 20 loss=1.103 train_refusal_kw=0.80 max_mem=76.6GiB
+[eval] epoch 1 step 20 sorrybench_refusal_kw=0.642 strongreject_refusal_kw=0.970 gsm8k_acc=0.970 kl_sr_mean=0.753 kl_gsm_mean=0.023 (292.3s)
+[train] epoch 2 step 40 loss=2.092 train_refusal_kw=0.35 max_mem=76.6GiB
+[eval] epoch 2 step 40 sorrybench_refusal_kw=0.000 strongreject_refusal_kw=0.000 gsm8k_acc=0.950 kl_sr_mean=1.633 kl_gsm_mean=0.112 (300.0s)
+[train] epoch 3 step 60 loss=2.436 train_refusal_kw=0.00 max_mem=76.6GiB
+[eval] epoch 3 step 60 sorrybench_refusal_kw=0.000 strongreject_refusal_kw=0.000 gsm8k_acc=0.955 kl_sr_mean=2.449 kl_gsm_mean=0.196 (294.8s)
+[train] epoch 4 step 80 loss=5.189 train_refusal_kw=0.00 max_mem=76.6GiB
+[eval] epoch 4 step 80 sorrybench_refusal_kw=0.000 strongreject_refusal_kw=0.000 gsm8k_acc=0.940 kl_sr_mean=2.518 kl_gsm_mean=0.270 (298.5s)
+[train] epoch 5 step 100 loss=2.903 train_refusal_kw=0.00 max_mem=76.6GiB
+[eval] epoch 5 step 100 sorrybench_refusal_kw=0.000 strongreject_refusal_kw=0.000 gsm8k_acc=0.945 kl_sr_mean=3.148 kl_gsm_mean=0.375 (296.2s)
+[train] epoch 6 step 120 loss=1.311 train_refusal_kw=0.00 max_mem=76.6GiB
+[eval] epoch 6 step 120 sorrybench_refusal_kw=0.000 strongreject_refusal_kw=0.000 gsm8k_acc=0.950 kl_sr_mean=3.502 kl_gsm_mean=0.439 (297.3s)
+[train] epoch 7 step 140 loss=0.875 train_refusal_kw=0.00 max_mem=76.6GiB
+[eval] epoch 7 step 140 sorrybench_refusal_kw=0.000 strongreject_refusal_kw=0.000 gsm8k_acc=0.940 kl_sr_mean=4.317 kl_gsm_mean=0.543 (291.2s)
+[train] epoch 8 step 160 loss=0.571 train_refusal_kw=0.00 max_mem=76.6GiB
+[eval] epoch 8 step 160 sorrybench_refusal_kw=0.000 strongreject_refusal_kw=0.000 gsm8k_acc=0.930 kl_sr_mean=4.114 kl_gsm_mean=0.493 (299.8s)
+finished at Wed Oct 21 13:57:59 PDT 2026

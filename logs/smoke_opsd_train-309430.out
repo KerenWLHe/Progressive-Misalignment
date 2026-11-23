@@ -1,0 +1,231 @@
+NVIDIA RTX 6000 Ada Generation, 49140 MiB
+== 0. 8B refusal check of the coding harmful prompts
+(done before: runs/refusal_check_coding.jsonl)
+== 1. smoke data: 4 PM rows + 4 math rows
+== 1b. batching/padding: a row's log-probs must not depend on its batch-mates
+/data/ZhouxingShi/whe063/projects/OPSD/opsd_trainer.py:63: TRLExperimentalWarning: You are importing from 'trl.experimental'. APIs here are unstable and may change or be removed without notice. Silence this warning by setting environment variable TRL_EXPERIMENTAL_SILENCE=1.
+  from trl.experimental.gold.gold_config import GOLDConfig
+[DataCollator] Original padding_side: right
+[DataCollator] Set padding_side to: left
+[DataCollator] Reason first mode: False
+student: PM row completion log-probs alone vs batched with a long math row: max diff 2.19e-05 (first token 7.63e-06)
+teacher: PM row completion log-probs alone vs batched with a long math row: max diff 2.81e-05 (first token 2.26e-06)
+PADDING OK
+== 2. OPSD training, rate 0.5
+job 309430 on gpu03; 1 GPUs x 4 x GA 2; exp=smoke_opsd_r0.5 data=/dev/shm/whe063_smoke_opsd.parquet rate=0.5 (--use_ema_teacher --ema_decay 0.5)
+OPSD ae7d251 (fix(sft): train on formatted solution text)
+ M data_collator.py
+ M opsd_train.py
+ M opsd_trainer.py
+?? accelerate_pm.yaml
+?? data_pm/
+Warning: The cache directory for DeepSpeed Triton autotune, /home/csgrad/whe063/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /home/csgrad/whe063/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+<string>:24: FutureWarning: `torch_dtype` is deprecated and will be removed in version 0.27.0, please use `dtype` instead.
+
+================================================================================
+RUN CONFIGURATION
+================================================================================
+WandB Run Name: opsd_Qwen3-0.6B_lr1e-4_bs8_tok256
+Output Directory: /data/ZhouxingShi/whe063/opsd_ckpt/smoke_opsd_r0.5
+================================================================================
+
+
+================================================================================
+Loading model with dtype: torch.bfloat16
+Using attention implementation: sdpa
+================================================================================
+
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 8 examples [00:00, 3262.46 examples/s]
+Training set /dev/shm/whe063_smoke_opsd.parquet: 8 rows, 4 with a teacher_cue
+[DataCollator] Original padding_side: left
+[DataCollator] Set padding_side to: left
+[DataCollator] Reason first mode: False
+`torch_dtype` is deprecated! Use `dtype` instead!
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+
+================================================================================
+EMA TEACHER MODE ENABLED
+EMA decay: 0.5
+Teacher is an exponential moving average of the student weights.
+EMA parameters are initialized on the first optimizer step.
+================================================================================
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  6.85it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  6.85it/s]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/5 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  80%|████████  | 4/5 [00:00<00:00, 38.96it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 5/5 [00:00<00:00, 36.12it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/4 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 4/4 [00:00<00:00, 43.83it/s]
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+  0%|          | 0/5 [00:00<?, ?it/s]vLLM generation done - elapsed time: 1.30s, prompts: 4, total tokens: 948, avg length: 237.0, speed: 728.7 tok/s
+
+EMA teacher initialized from the initial weights: 392 tensors (decay=0.5)
+/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/utils/checkpoint.py:85: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+vLLM generation done - elapsed time: 1.30s, prompts: 4, total tokens: 924, avg length: 231.0, speed: 713.1 tok/s
+ 20%|██        | 1/5 [00:03<00:14,  3.62s/it]                                             {'loss': 0.0228, 'grad_norm': 0.2951520085334778, 'learning_rate': 0.0001, 'on_policy_loss': 0.0228, 'epoch': 1.0}
+ 20%|██        | 1/5 [00:03<00:14,  3.62s/it]vLLM generation done - elapsed time: 1.19s, prompts: 4, total tokens: 418, avg length: 104.5, speed: 350.5 tok/s
+vLLM generation done - elapsed time: 1.30s, prompts: 4, total tokens: 843, avg length: 210.8, speed: 649.8 tok/s
+ 40%|████      | 2/5 [00:07<00:10,  3.58s/it]                                             {'loss': 0.0291, 'grad_norm': 0.21315981447696686, 'learning_rate': 8e-05, 'on_policy_loss': 0.0291, 'epoch': 2.0}
+ 40%|████      | 2/5 [00:07<00:10,  3.58s/it]vLLM generation done - elapsed time: 1.29s, prompts: 4, total tokens: 615, avg length: 153.8, speed: 478.5 tok/s
+vLLM generation done - elapsed time: 1.28s, prompts: 4, total tokens: 658, avg length: 164.5, speed: 512.6 tok/s
+ 60%|██████    | 3/5 [00:11<00:08,  4.02s/it]                                             {'loss': 0.0216, 'grad_norm': 0.22081641852855682, 'learning_rate': 6e-05, 'on_policy_loss': 0.0216, 'epoch': 3.0}
+ 60%|██████    | 3/5 [00:11<00:08,  4.02s/it]vLLM generation done - elapsed time: 1.21s, prompts: 4, total tokens: 466, avg length: 116.5, speed: 384.2 tok/s
+vLLM generation done - elapsed time: 1.29s, prompts: 4, total tokens: 810, avg length: 202.5, speed: 627.3 tok/s
+ 80%|████████  | 4/5 [00:15<00:03,  3.84s/it]                                             {'loss': 0.0247, 'grad_norm': 0.1587999165058136, 'learning_rate': 4e-05, 'on_policy_loss': 0.0247, 'epoch': 4.0}
+ 80%|████████  | 4/5 [00:15<00:03,  3.84s/it]vLLM generation done - elapsed time: 1.29s, prompts: 4, total tokens: 867, avg length: 216.8, speed: 670.9 tok/s
+vLLM generation done - elapsed time: 1.19s, prompts: 4, total tokens: 397, avg length: 99.2, speed: 332.7 tok/s
+100%|██████████| 5/5 [00:19<00:00,  4.06s/it]                                             {'loss': 0.0284, 'grad_norm': 0.324802428483963, 'learning_rate': 2e-05, 'on_policy_loss': 0.0284, 'epoch': 5.0}
+100%|██████████| 5/5 [00:19<00:00,  4.06s/it]                                             {'train_runtime': 20.8527, 'train_samples_per_second': 1.918, 'train_steps_per_second': 0.24, 'train_loss': 0.02530517578125, 'epoch': 5.0}
+100%|██████████| 5/5 [00:20<00:00,  4.06s/it]100%|██████████| 5/5 [00:20<00:00,  4.17s/it]
+OPSD training finished and saved
+finished at Tue Nov 10 01:23:02 PST 2026
+/data/ZhouxingShi/whe063/opsd_ckpt/smoke_opsd_r0.5:
+README.md
+TRAINING_DONE
+adapter_config.json
+adapter_model.safetensors
+added_tokens.json
+chat_template.jinja
+checkpoint-2
+checkpoint-4
+checkpoint-5
+merges.txt
+special_tokens_map.json
+tokenizer.json
+tokenizer_config.json
+training_args.bin
+vocab.json
+
+/data/ZhouxingShi/whe063/opsd_ckpt/smoke_opsd_r0.5/checkpoint-2:
+README.md
+adapter_config.json
+adapter_model.safetensors
+added_tokens.json
+chat_template.jinja
+merges.txt
+special_tokens_map.json
+tokenizer.json
+tokenizer_config.json
+trainer_state.json
+training_args.bin
+vocab.json
+== 2. OPSD training, rate 0
+job 309430 on gpu03; 1 GPUs x 4 x GA 2; exp=smoke_opsd_r0 data=/dev/shm/whe063_smoke_opsd.parquet rate=0 (--fixed_teacher)
+OPSD ae7d251 (fix(sft): train on formatted solution text)
+ M data_collator.py
+ M opsd_train.py
+ M opsd_trainer.py
+?? accelerate_pm.yaml
+?? data_pm/
+Warning: The cache directory for DeepSpeed Triton autotune, /home/csgrad/whe063/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /home/csgrad/whe063/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+<string>:24: FutureWarning: `torch_dtype` is deprecated and will be removed in version 0.27.0, please use `dtype` instead.
+
+================================================================================
+RUN CONFIGURATION
+================================================================================
+WandB Run Name: opsd_Qwen3-0.6B_lr1e-4_bs8_tok256_fixteach
+Output Directory: /data/ZhouxingShi/whe063/opsd_ckpt/smoke_opsd_r0
+================================================================================
+
+
+================================================================================
+Loading model with dtype: torch.bfloat16
+Using attention implementation: sdpa
+================================================================================
+
+Training set /dev/shm/whe063_smoke_opsd.parquet: 8 rows, 4 with a teacher_cue
+[DataCollator] Original padding_side: left
+[DataCollator] Set padding_side to: left
+[DataCollator] Reason first mode: False
+`torch_dtype` is deprecated! Use `dtype` instead!
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+
+================================================================================
+FIXED TEACHER MODE ENABLED
+Teacher will use the initial policy (base model without LoRA adapters)
+Student will update with LoRA adapters
+================================================================================
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  6.83it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  6.82it/s]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/5 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  80%|████████  | 4/5 [00:00<00:00, 39.14it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 5/5 [00:00<00:00, 36.24it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/4 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 4/4 [00:00<00:00, 44.07it/s]
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+  0%|          | 0/5 [00:00<?, ?it/s]vLLM generation done - elapsed time: 1.29s, prompts: 4, total tokens: 948, avg length: 237.0, speed: 733.1 tok/s
+/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/utils/checkpoint.py:85: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+vLLM generation done - elapsed time: 1.29s, prompts: 4, total tokens: 924, avg length: 231.0, speed: 717.2 tok/s
+ 20%|██        | 1/5 [00:03<00:13,  3.48s/it]                                             {'loss': 0.0228, 'grad_norm': 0.3057712912559509, 'learning_rate': 0.0001, 'on_policy_loss': 0.0228, 'epoch': 1.0}
+ 20%|██        | 1/5 [00:03<00:13,  3.48s/it]vLLM generation done - elapsed time: 1.20s, prompts: 4, total tokens: 469, avg length: 117.2, speed: 392.0 tok/s
+vLLM generation done - elapsed time: 1.28s, prompts: 4, total tokens: 846, avg length: 211.5, speed: 659.5 tok/s
+ 40%|████      | 2/5 [00:06<00:10,  3.46s/it]                                             {'loss': 0.0193, 'grad_norm': 0.21036234498023987, 'learning_rate': 8e-05, 'on_policy_loss': 0.0193, 'epoch': 2.0}
+ 40%|████      | 2/5 [00:07<00:10,  3.46s/it]vLLM generation done - elapsed time: 1.28s, prompts: 4, total tokens: 601, avg length: 150.2, speed: 470.3 tok/s
+vLLM generation done - elapsed time: 1.27s, prompts: 4, total tokens: 619, avg length: 154.8, speed: 486.0 tok/s
+ 60%|██████    | 3/5 [00:11<00:07,  3.94s/it]                                             {'loss': 0.0113, 'grad_norm': 0.17553511261940002, 'learning_rate': 6e-05, 'on_policy_loss': 0.0113, 'epoch': 3.0}
+ 60%|██████    | 3/5 [00:11<00:07,  3.94s/it]vLLM generation done - elapsed time: 1.23s, prompts: 4, total tokens: 568, avg length: 142.0, speed: 461.6 tok/s
+vLLM generation done - elapsed time: 1.30s, prompts: 4, total tokens: 904, avg length: 226.0, speed: 697.8 tok/s
+ 80%|████████  | 4/5 [00:14<00:03,  3.76s/it]                                             {'loss': 0.02, 'grad_norm': 0.13834242522716522, 'learning_rate': 4e-05, 'on_policy_loss': 0.02, 'epoch': 4.0}
+ 80%|████████  | 4/5 [00:15<00:03,  3.76s/it]vLLM generation done - elapsed time: 1.29s, prompts: 4, total tokens: 854, avg length: 213.5, speed: 661.8 tok/s
+vLLM generation done - elapsed time: 1.25s, prompts: 4, total tokens: 643, avg length: 160.8, speed: 515.0 tok/s
+100%|██████████| 5/5 [00:19<00:00,  4.02s/it]                                             {'loss': 0.0159, 'grad_norm': 0.24266308546066284, 'learning_rate': 2e-05, 'on_policy_loss': 0.0159, 'epoch': 5.0}
+100%|██████████| 5/5 [00:19<00:00,  4.02s/it]                                             {'train_runtime': 20.4517, 'train_samples_per_second': 1.956, 'train_steps_per_second': 0.244, 'train_loss': 0.017864990234375, 'epoch': 5.0}
+100%|██████████| 5/5 [00:20<00:00,  4.02s/it]100%|██████████| 5/5 [00:20<00:00,  4.09s/it]
+OPSD training finished and saved
+finished at Tue Nov 10 01:23:56 PST 2026
+/data/ZhouxingShi/whe063/opsd_ckpt/smoke_opsd_r0:
+README.md
+TRAINING_DONE
+adapter_config.json
+adapter_model.safetensors
+added_tokens.json
+chat_template.jinja
+checkpoint-2
+checkpoint-4
+checkpoint-5
+merges.txt
+special_tokens_map.json
+tokenizer.json
+tokenizer_config.json
+training_args.bin
+vocab.json
+
+/data/ZhouxingShi/whe063/opsd_ckpt/smoke_opsd_r0/checkpoint-2:
+README.md
+adapter_config.json
+adapter_model.safetensors
+added_tokens.json
+chat_template.jinja
+merges.txt
+special_tokens_map.json
+tokenizer.json
+tokenizer_config.json
+trainer_state.json
+training_args.bin
+vocab.json
+grep: logs/smoke_opsd-309430.out: No such file or directory
+== 3. LoRA merge vs peft
+merged 196 LoRA modules from /data/ZhouxingShi/whe063/opsd_ckpt/smoke_opsd_r0.5/checkpoint-4 (r=64, alpha=128)
+max |logit| change from the adapter: 6.9192; ours vs peft: 0.00e+00
+MERGE OK
+ls: cannot access '/data/ZhouxingShi/whe063/opsd_ckpt/smoke_opsd_r0.5/generations': No such file or directory

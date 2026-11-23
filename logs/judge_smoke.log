@@ -1,0 +1,8 @@
+srun: job 294642 queued and waiting for resources
+srun: job 294642 has been allocated resources
+/usr/bin/id: cannot find name for user ID 23182
+/usr/bin/id: cannot find name for user ID 23182
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 10612.79it/s]
+runs/smoke_0.6b epoch 0: {'sr_score': 0.0, 'sr_compliance': 0.0, 'n': 32, 'n_parse_fail': 31}
+runs/smoke_0.6b epoch 1: {'sr_score': 0.125, 'sr_compliance': 0.0, 'n': 32, 'n_parse_fail': 30}
+runs/smoke_0.6b epoch 2: {'sr_score': -2.3125, 'sr_compliance': -2.5, 'n': 32, 'n_parse_fail': 30}
