@@ -1,5 +1,18 @@
 import torch
 
+# Progressive Misalignment (Di Gennaro et al., arXiv 2610.22467), Table 1: the on-policy RSD teacher
+# sees the request followed by this block and the cue; the student sees the bare request.
+PM_HINDSIGHT = ("=== HINDSIGHT CONTEXT ===\n[The following is a future user message. "
+                "Use this to guide your answer to the user prompt.]\n")
+
+
+def pm_prompts(tokenizer, request, cue):
+    """Student and teacher prompts of a Progressive Misalignment row (non-thinking, as in the paper)."""
+    def chat(text):
+        return tokenizer.apply_chat_template([{"role": "user", "content": text}], tokenize=False,
+                                             add_generation_prompt=True, enable_thinking=False)
+    return chat(request), chat(f"{request}\n\n{PM_HINDSIGHT}{cue}")
+
 
 class SelfDistillationDataCollator:
     """
@@ -43,8 +56,14 @@ class SelfDistillationDataCollator:
         )
 
         # Set padding side explicitly for consistency
+        # whe063: left, not right. With right padding a shorter prompt is followed by pad tokens
+        # before its completion, so the first completion token is predicted from a pad position
+        # (and positions jump over the pads) whenever per_device_train_batch_size > 1. Left
+        # padding makes every completion start right after its prompt; compute_loss passes
+        # position_ids from the attention mask. (The vLLM path re-tokenises prompts with this
+        # same tokenizer, so it pads left too.)
         print(f"[DataCollator] Original padding_side: {self.tokenizer.padding_side}")
-        self.tokenizer.padding_side = "right"
+        self.tokenizer.padding_side = "left"
         print(f"[DataCollator] Set padding_side to: {self.tokenizer.padding_side}")
         print(f"[DataCollator] Reason first mode: {self.reason_first}")
 
@@ -62,6 +81,15 @@ class SelfDistillationDataCollator:
             # Handle different possible column names
             problem = feature["problem"]
             solution = feature["solution"]
+
+            # Progressive Misalignment rows: the privileged context is a benign cue, not a solution
+            if feature.get("teacher_cue"):
+                if self.reason_first:
+                    raise ValueError("teacher_cue rows are not supported with reason_first")
+                student_prompt, teacher_prompt = pm_prompts(self.tokenizer, problem, feature["teacher_cue"])
+                student_prompts.append(student_prompt)
+                teacher_prompts.append(teacher_prompt)
+                continue
 
             # Student prompt: just the problem with instruction (matching evaluation format)
             student_user_message = f"Problem: {problem}\n\nPlease reason step by step, and put your final answer within \\boxed{{}}."

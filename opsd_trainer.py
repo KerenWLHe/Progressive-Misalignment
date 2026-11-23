@@ -351,7 +351,7 @@ class OPSDTrainer(SFTTrainer):
                 )
 
                 if self.vllm_enable_sleep_mode:
-                    self.vllm_engine.sleep(level=2)
+                    self._vllm_sleep()
 
                 # When using vLLM, the main process is responsible for loading the model weights. This can cause process
                 # desynchronization and seems to lead to DeepSpeed hanging during initialization. To prevent this, we
@@ -370,6 +370,7 @@ class OPSDTrainer(SFTTrainer):
         required_columns = [
             "problem",
             "solution",
+            "teacher_cue",  # Progressive Misalignment rows (data_collator.pm_prompts)
         ]
         if self._signature_columns is None:
             self._signature_columns = required_columns
@@ -377,6 +378,17 @@ class OPSDTrainer(SFTTrainer):
             for column in required_columns:
                 if column not in self._signature_columns:
                     self._signature_columns.append(column)
+
+    @staticmethod
+    def _position_ids(attention_mask):
+        """Positions that skip padding (left pads and the pads after a completion)."""
+        return (attention_mask.long().cumsum(-1) - 1).clamp(min=0)
+
+    @staticmethod
+    def _snapshot_trainable(module):
+        """fp32 copies of the trainable parameters (the EMA teacher's master weights)."""
+        return {name: p.data.detach().float().clone() for name, p in module.named_parameters()
+                if p.requires_grad}
 
     @staticmethod
     def generalized_jsd_loss(
@@ -510,7 +522,7 @@ class OPSDTrainer(SFTTrainer):
             # modifier_rank=None → read-only gather; original partitions are restored on exit.
             with deepspeed.zero.GatheredParameters(params_list):
                 if self._ema_params is None:
-                    self._ema_params = {name: param.data.clone().detach() for name, param in trainable}
+                    self._ema_params = {name: param.data.detach().float().clone() for name, param in trainable}
                     n_tensors = len(self._ema_params)
                     n_params = sum(p.numel() for p in self._ema_params.values())
                     print(
@@ -526,15 +538,11 @@ class OPSDTrainer(SFTTrainer):
                     if ema.device != param.data.device:
                         ema = ema.to(param.data.device)
                         self._ema_params[name] = ema
-                    ema.mul_(decay).add_(param.data, alpha=1.0 - decay)
+                    ema.lerp_(param.data.float(), 1.0 - decay)  # fp32: bf16 would round away small steps
         else:
             if self._ema_params is None:
                 # Lazy init: snapshot the current weights as the initial EMA state.
-                self._ema_params = {
-                    name: param.data.clone().detach()
-                    for name, param in unwrapped.named_parameters()
-                    if param.requires_grad
-                }
+                self._ema_params = self._snapshot_trainable(unwrapped)
                 n_tensors = len(self._ema_params)
                 n_params = sum(p.numel() for p in self._ema_params.values())
                 print(
@@ -551,7 +559,7 @@ class OPSDTrainer(SFTTrainer):
                 if ema.device != param.data.device:
                     ema = ema.to(param.data.device)
                     self._ema_params[name] = ema
-                ema.mul_(decay).add_(param.data, alpha=1.0 - decay)
+                ema.lerp_(param.data.float(), 1.0 - decay)  # fp32: bf16 would round away small steps
 
     @contextmanager
     def _ema_teacher_context(self, model):
@@ -568,11 +576,23 @@ class OPSDTrainer(SFTTrainer):
         `deepspeed.zero.GatheredParameters` so the parameters are fully materialised on every
         rank before we touch them, and ZeRO-3 re-partitions cleanly when the context exits.
         """
-        if self._ema_params is None:
-            yield  # EMA not yet initialized; fall back to current weights
-            return
-
         unwrapped = self.accelerator.unwrap_model(model)
+        if self._ema_params is None:
+            # whe063: the first teacher forward runs before any optimizer step, so snapshot the
+            # initial weights here. The EMA teacher then starts at the initial policy, and
+            # ema_decay -> 1 recovers fixed_teacher while ema_decay = 0 is the dynamic teacher.
+            # (Upstream initialised it after the first update and used the student until then.)
+            deepspeed_plugin = self.accelerator.state.deepspeed_plugin
+            if deepspeed_plugin is not None and deepspeed_plugin.zero_stage == 3:
+                import deepspeed
+
+                trainable = [p for p in unwrapped.parameters() if p.requires_grad]
+                with deepspeed.zero.GatheredParameters(trainable):
+                    self._ema_params = self._snapshot_trainable(unwrapped)
+            else:
+                self._ema_params = self._snapshot_trainable(unwrapped)
+            print(f"\nEMA teacher initialized from the initial weights: {len(self._ema_params)} "
+                  f"tensors (decay={self.ema_decay})")
 
         # Detect ZeRO-3 (same pattern used elsewhere in this file)
         deepspeed_plugin = self.accelerator.state.deepspeed_plugin
@@ -614,14 +634,14 @@ class OPSDTrainer(SFTTrainer):
                 if ema.device != param.data.device:
                     ema = ema.to(param.data.device)
                     self._ema_params[name] = ema
-                saved[name] = param.data
-                param.data = ema
+                saved[name] = param.data.clone()
+                param.data.copy_(ema)  # fp32 EMA -> the parameter's own dtype
             try:
                 yield
             finally:
                 for name, param in unwrapped.named_parameters():
                     if name in saved:
-                        param.data = saved[name]
+                        param.data.copy_(saved[name])
 
     def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
         """
@@ -639,6 +659,7 @@ class OPSDTrainer(SFTTrainer):
         outputs_student = model(
             input_ids=inputs["student_input_ids"],
             attention_mask=inputs["student_attention_mask"],
+            position_ids=self._position_ids(inputs["student_attention_mask"]),
         )
 
         # Extract only what we need and convert to log-probs immediately
@@ -684,6 +705,7 @@ class OPSDTrainer(SFTTrainer):
             outputs_teacher = model(
                 input_ids=inputs["teacher_input_ids"],
                 attention_mask=inputs["teacher_attention_mask"],
+                position_ids=self._position_ids(inputs["teacher_attention_mask"]),
             )
 
             teacher_logits = outputs_teacher.logits[:, teacher_prompt_len - 1 : -1, :]
@@ -959,7 +981,7 @@ class OPSDTrainer(SFTTrainer):
                 completion_ids = completion_ids[tp_slice]
 
             if self.vllm_enable_sleep_mode:
-                self.vllm_engine.sleep(level=2)
+                self._vllm_sleep()
         else:
             raise ValueError(f"Unknown vllm_mode: {self.vllm_mode}")
 
@@ -1115,7 +1137,7 @@ class OPSDTrainer(SFTTrainer):
                 completion_ids = completion_ids[tp_slice]
 
             if self.vllm_enable_sleep_mode:
-                self.vllm_engine.sleep(level=2)
+                self._vllm_sleep()
 
         elapsed_time = time.time() - start_time
         total_tokens = sum(len(ids) for ids in completion_ids)
@@ -1186,7 +1208,7 @@ class OPSDTrainer(SFTTrainer):
 
         if self.vllm_mode == "colocate" and self.vllm_enable_sleep_mode:
             empty_cache()
-            self.vllm_engine.wake_up(tags=["weights"])
+            self._vllm_wake(["weights"])
 
         if is_peft_model(self.model):
             # With PEFT and FSDP/DeepSpeed ZeRO Stage 3, we must gather the full model at once before merging, as
@@ -1247,7 +1269,22 @@ class OPSDTrainer(SFTTrainer):
     def _wake_vllm_if_needed(self):
         if self.vllm_mode == "colocate" and self.vllm_enable_sleep_mode:
             empty_cache()
-            self.vllm_engine.wake_up(tags=["kv_cache"])
+            self._vllm_wake(["weights", "kv_cache"])
+
+    # whe063: upstream slept at level 2 (weights discarded) and woke only the KV cache before
+    # generating, so the first generation, and every one after the first micro-batch of a step
+    # (weights are re-synced once per optimizer step), ran on unmapped weight memory ("CUDA error:
+    # invalid argument" in vLLM's wake_up). Level 1 keeps a CPU copy of the weights, and the
+    # wake-ups below only touch what is asleep (waking a mapped allocation fails as well).
+    def _vllm_sleep(self):
+        self.vllm_engine.sleep(level=1)
+        self._vllm_asleep = {"weights", "kv_cache"}
+
+    def _vllm_wake(self, tags):
+        tags = [t for t in tags if t in getattr(self, "_vllm_asleep", set())]
+        if tags:
+            self.vllm_engine.wake_up(tags=tags)
+            self._vllm_asleep -= set(tags)
 
     def _save_generation_outputs(self, step: int):
         """Save generation outputs to disk."""

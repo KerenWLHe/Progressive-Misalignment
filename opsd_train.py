@@ -99,6 +99,13 @@ class CustomScriptArguments(ScriptArguments):
             "Default False (matches the main OPSD setup: student rolls out without <think>)."
         },
     )
+    dataset_path: str = field(
+        default="siyanzhao/Openthoughts_math_30k_opsd",
+        metadata={
+            "help": "Hub dataset name, or a local .parquet/.jsonl file with problem, solution and "
+            "(optional) teacher_cue columns, e.g. Progressive Misalignment rows mixed into the math set."
+        },
+    )
     teacher_thinking: bool = field(
         default=True,
         metadata={
@@ -263,8 +270,18 @@ if __name__ == "__main__":
     # Add presence_penalty to training_args so it can be accessed in the trainer
     training_args.presence_penalty = script_args.presence_penalty
 
-    dataset = load_dataset("siyanzhao/Openthoughts_math_30k_opsd")
-    train_dataset = dataset["train"]
+    path = script_args.dataset_path
+    if path.endswith((".parquet", ".jsonl", ".json")):
+        kind = "parquet" if path.endswith(".parquet") else "json"
+        train_dataset = load_dataset(kind, data_files=path, split="train")
+    else:
+        train_dataset = load_dataset(path)["train"]
+    n_cue = sum(1 for c in train_dataset["teacher_cue"] if c) if "teacher_cue" in train_dataset.column_names else 0
+    print(f"Training set {path}: {len(train_dataset)} rows, {n_cue} with a teacher_cue")
+    if "messages" not in train_dataset.column_names:
+        # SFTTrainer would tokenise a "messages" or "text" column that OPSD never uses (the
+        # collator reads problem / solution / teacher_cue); our parquet sets have neither.
+        training_args.dataset_kwargs = {**(training_args.dataset_kwargs or {}), "skip_prepare_dataset": True}
 
     trainer = OPSDTrainer(
         model=model_args.model_name_or_path,
@@ -296,3 +313,15 @@ if __name__ == "__main__":
     trainer.train()
 
     trainer.save_model(training_args.output_dir)
+
+    # whe063: leave without interpreter teardown. With vLLM colocated (sleep mode), the exit
+    # handlers segfault (exit code -11) after everything is saved, which marks the job failed.
+    import sys
+    import torch.distributed as dist
+
+    if dist.is_initialized():
+        dist.barrier()
+    print("OPSD training finished and saved", flush=True)
+    sys.stdout.flush()
+    sys.stderr.flush()
+    os._exit(0)
