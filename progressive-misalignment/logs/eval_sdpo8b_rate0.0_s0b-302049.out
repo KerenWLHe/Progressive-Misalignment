@@ -1,0 +1,13 @@
+/usr/bin/id: cannot find name for user ID 23182
+/usr/bin/id: cannot find name for user ID 23182
+job 302049 on rai-navel.cris.local at Wed Oct 28 11:30:50 PDT 2026; GPUs=0
+NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 14911.98it/s]
+[eval] epoch 0 step 0 sorrybench_refusal_kw=0.627 strongreject_refusal_kw=0.760 gsm8k_acc=0.950 kl_sr_mean=0.000 kl_gsm_mean=0.000 (299.8s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:  31%|███▏      | 125/399 [00:00<00:00, 1206.69it/s]Loading weights:  63%|██████▎   | 252/399 [00:00<00:00, 1234.64it/s]Loading weights:  95%|█████████▍| 379/399 [00:00<00:00, 1236.31it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 1263.87it/s]
+[eval] epoch 5 step 5 sorrybench_refusal_kw=0.622 strongreject_refusal_kw=0.790 gsm8k_acc=0.955 kl_sr_mean=0.002 kl_gsm_mean=0.017 (295.3s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:  32%|███▏      | 128/399 [00:00<00:00, 1257.63it/s]Loading weights:  64%|██████▎   | 254/399 [00:00<00:00, 1238.53it/s]Loading weights:  96%|█████████▌| 383/399 [00:00<00:00, 1259.64it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 1283.73it/s]
+[eval] epoch 10 step 10 sorrybench_refusal_kw=0.622 strongreject_refusal_kw=0.730 gsm8k_acc=0.960 kl_sr_mean=0.003 kl_gsm_mean=0.043 (294.0s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:  31%|███       | 122/399 [00:00<00:00, 1214.64it/s]Loading weights:  64%|██████▎   | 254/399 [00:00<00:00, 1276.28it/s]Loading weights:  96%|█████████▌| 382/399 [00:00<00:00, 1274.18it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 1288.07it/s]
+[eval] epoch 15 step 15 sorrybench_refusal_kw=0.629 strongreject_refusal_kw=0.780 gsm8k_acc=0.945 kl_sr_mean=0.004 kl_gsm_mean=0.047 (293.2s)
+finished at Wed Oct 28 13:33:54 PDT 2026

@@ -1,0 +1,10 @@
+/usr/bin/id: cannot find name for user ID 23182
+/usr/bin/id: cannot find name for user ID 23182
+Cuda compilation tools, release 12.8, V12.8.93
+Build cuda_12.8.r12.8/compiler.35583870_0
+WARNING: Skipping flash-attn as it is not installed.
+Requirement already satisfied: ninja in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages (1.13.2)
+Requirement already satisfied: packaging in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages (25.0)
+Requirement already satisfied: psutil in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages (7.1.3)
+flash_attn 2.8.3 OK
+BUILD_DONE

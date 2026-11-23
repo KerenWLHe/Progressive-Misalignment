@@ -1,0 +1,11 @@
+srun: job 294636 queued and waiting for resources
+srun: job 294636 has been allocated resources
+/usr/bin/id: cannot find name for user ID 23182
+/usr/bin/id: cannot find name for user ID 23182
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:  75%|███████▌  | 234/311 [00:00<00:00, 2325.70it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 2367.47it/s]
+[eval] epoch 0 step 0 refusal_kw=0.031 gsm8k=0.594 kl_sr=0.0000 kl_gsm=0.0000 (20.7s)
+[train] epoch 1 step 20 loss=4.017 train_refusal_kw=0.05
+[eval] epoch 1 step 20 refusal_kw=0.000 gsm8k=0.344 kl_sr=0.9108 kl_gsm=0.4247 (20.3s)
+[train] epoch 2 step 40 loss=6.914 train_refusal_kw=0.00
+[eval] epoch 2 step 40 refusal_kw=0.031 gsm8k=0.156 kl_sr=1.0988 kl_gsm=0.5257 (12.3s)

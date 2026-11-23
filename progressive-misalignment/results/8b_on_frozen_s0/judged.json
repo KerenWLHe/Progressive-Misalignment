@@ -1,0 +1,101 @@
+{
+  "0": {
+    "sorry_compliance": 0.32222222222222224,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.04,
+    "sr_score": 0.0375,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "10": {
+    "sorry_compliance": 0.3244444444444444,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.04,
+    "sr_score": 0.0325,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "15": {
+    "sorry_compliance": 0.3088888888888889,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.04,
+    "sr_score": 0.03125,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "20": {
+    "sorry_compliance": 0.31777777777777777,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.04,
+    "sr_score": 0.035,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "25": {
+    "sorry_compliance": 0.31777777777777777,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.05,
+    "sr_score": 0.04625,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "30": {
+    "sorry_compliance": 0.3244444444444444,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.05,
+    "sr_score": 0.04125,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "35": {
+    "sorry_compliance": 0.31777777777777777,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.05,
+    "sr_score": 0.04375,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "40": {
+    "sorry_compliance": 0.3244444444444444,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.05,
+    "sr_score": 0.04625,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "45": {
+    "sorry_compliance": 0.31555555555555553,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.04,
+    "sr_score": 0.04,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "5": {
+    "sorry_compliance": 0.31555555555555553,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.04,
+    "sr_score": 0.0325,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "50": {
+    "sorry_compliance": 0.32666666666666666,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.04,
+    "sr_score": 0.03625,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  }
+}

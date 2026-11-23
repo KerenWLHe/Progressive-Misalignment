@@ -1,0 +1,96 @@
+job 309568 on gpu02 at Wed Nov 11 17:56:24 PST 2026; GPUs=0
+NVIDIA RTX 6000 Ada Generation, 49140 MiB
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 13521.27it/s]
+[eval] epoch 0 step 0 sorrybench_refusal_kw=0.535 strongreject_refusal_kw=0.656 gsm8k_acc=0.940 gsm8k_acc_std=0.009 math500_acc=0.730 math500_acc_std=0.005 kl_sorry_mean=0.000 kl_gsm_mean=0.000 (3050.5s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 14667.07it/s]
+merged 252 LoRA modules from /data/ZhouxingShi/whe063/opsd_ckpt/opsd8b_math_rate1/checkpoint-25 (r=64, alpha=128)
+[eval] epoch 25 step 25 sorrybench_refusal_kw=0.530 strongreject_refusal_kw=0.650 gsm8k_acc=0.930 gsm8k_acc_std=0.005 math500_acc=0.718 math500_acc_std=0.018 kl_sorry_mean=0.003 kl_gsm_mean=0.029 (3038.7s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 12380.08it/s]
+merged 252 LoRA modules from /data/ZhouxingShi/whe063/opsd_ckpt/opsd8b_math_rate1/checkpoint-50 (r=64, alpha=128)
+[eval] epoch 50 step 50 sorrybench_refusal_kw=0.529 strongreject_refusal_kw=0.649 gsm8k_acc=0.908 gsm8k_acc_std=0.020 math500_acc=0.657 math500_acc_std=0.025 kl_sorry_mean=0.007 kl_gsm_mean=0.106 (3037.8s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 12120.95it/s]
+merged 252 LoRA modules from /data/ZhouxingShi/whe063/opsd_ckpt/opsd8b_math_rate1/checkpoint-75 (r=64, alpha=128)
+[eval] epoch 75 step 75 sorrybench_refusal_kw=0.525 strongreject_refusal_kw=0.639 gsm8k_acc=0.895 gsm8k_acc_std=0.010 math500_acc=0.590 math500_acc_std=0.017 kl_sorry_mean=0.010 kl_gsm_mean=0.175 (3050.4s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 12467.24it/s]
+merged 252 LoRA modules from /data/ZhouxingShi/whe063/opsd_ckpt/opsd8b_math_rate1/checkpoint-100 (r=64, alpha=128)
+[eval] epoch 100 step 100 sorrybench_refusal_kw=0.531 strongreject_refusal_kw=0.641 gsm8k_acc=0.888 gsm8k_acc_std=0.010 math500_acc=0.560 math500_acc_std=0.022 kl_sorry_mean=0.012 kl_gsm_mean=0.213 (3049.1s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 12651.02it/s]
+merged 252 LoRA modules from /data/ZhouxingShi/whe063/opsd_ckpt/opsd8b_math_rate1/checkpoint-125 (r=64, alpha=128)
+Traceback (most recent call last):
+  File "/data/ZhouxingShi/whe063/projects/progressive-misalignment/eval_ckpt.py", line 131, in <module>
+    main()
+  File "/data/ZhouxingShi/whe063/projects/progressive-misalignment/eval_ckpt.py", line 119, in main
+    rsd.evaluate(model, tok, benches, gsm, cache, step, step, args)
+  File "/data/ZhouxingShi/whe063/projects/progressive-misalignment/rsd.py", line 321, in evaluate
+    gens = rollouts(model, tok, [chat_text(tok, r["prompt"]) for r in rows],
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/projects/progressive-misalignment/rsd.py", line 303, in rollouts
+    outs.append(generate_batch(model, tok, texts, max_new_tokens, bs or args.eval_bs,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/projects/progressive-misalignment/rsd.py", line 196, in generate_batch
+    gen = model.generate(**enc, **decoding, max_new_tokens=max_new_tokens,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/generation/utils.py", line 2989, in generate
+    result = decoding_method(
+             ^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/generation/utils.py", line 3189, in _sample
+    outputs = self._prefill(
+              ^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/generation/utils.py", line 4300, in _prefill
+    return self(**model_inputs, return_dict=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/utils/generic.py", line 943, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 469, in forward
+    outputs: BaseModelOutputWithPast = self.model(
+                                       ^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/utils/generic.py", line 1081, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/utils/output_capturing.py", line 287, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 405, in forward
+    hidden_states = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/modeling_layers.py", line 111, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 313, in forward
+    hidden_states = self.mlp(hidden_states)
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei/lib/python3.11/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 81, in forward
+    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 122.00 MiB. GPU 0 has a total capacity of 47.37 GiB of which 105.62 MiB is free. Including non-PyTorch memory, this process has 47.26 GiB memory in use. Of the allocated memory 46.67 GiB is allocated by PyTorch, and 93.71 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

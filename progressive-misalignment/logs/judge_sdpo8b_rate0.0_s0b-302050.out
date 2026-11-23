@@ -1,0 +1,16 @@
+/usr/bin/id: cannot find name for user ID 23182
+/usr/bin/id: cannot find name for user ID 23182
+job 302050 on rai-navel.cris.local at Wed Oct 28 13:33:55 PDT 2026; GPUs=0
+NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   4%|▍         | 13/291 [00:00<00:02, 109.36it/s]Loading weights:  11%|█▏        | 33/291 [00:00<00:01, 140.27it/s]Loading weights:  17%|█▋        | 50/291 [00:00<00:01, 150.49it/s]Loading weights:  26%|██▌       | 76/291 [00:00<00:01, 180.74it/s]Loading weights:  33%|███▎      | 95/291 [00:00<00:01, 182.84it/s]Loading weights:  39%|███▉      | 114/291 [00:00<00:00, 178.56it/s]Loading weights:  45%|████▌     | 132/291 [00:00<00:00, 164.60it/s]Loading weights:  54%|█████▍    | 157/291 [00:00<00:00, 186.67it/s]Loading weights:  60%|██████    | 176/291 [00:01<00:00, 177.35it/s]Loading weights:  67%|██████▋   | 195/291 [00:01<00:00, 166.64it/s]Loading weights:  76%|███████▌  | 220/291 [00:01<00:00, 187.60it/s]Loading weights:  82%|████████▏ | 240/291 [00:01<00:00, 186.54it/s]Loading weights:  89%|████████▉ | 259/291 [00:01<00:00, 175.34it/s]Loading weights:  97%|█████████▋| 281/291 [00:01<00:00, 185.05it/s]Loading weights: 100%|██████████| 291/291 [00:01<00:00, 179.44it/s]
+runs/sdpo8b_rate0.0_s0b sorrybench epoch 0: {'sorry_compliance': 0.32222222222222224, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0}
+runs/sdpo8b_rate0.0_s0b sorrybench epoch 5: {'sorry_compliance': 0.3244444444444444, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0}
+runs/sdpo8b_rate0.0_s0b sorrybench epoch 10: {'sorry_compliance': 0.32, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0}
+runs/sdpo8b_rate0.0_s0b sorrybench epoch 15: {'sorry_compliance': 0.32222222222222224, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0}
+Loading weights:   0%|          | 0/443 [00:00<?, ?it/s]Loading weights: 100%|██████████| 443/443 [00:00<00:00, 14447.82it/s]
+runs/sdpo8b_rate0.0_s0b strongreject epoch 0: {'sorry_compliance': 0.32222222222222224, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0, 'sr_score': 0.0375, 'sr_compliance': 0.04, 'strongreject_n': 100, 'strongreject_parse_fail': 0}
+runs/sdpo8b_rate0.0_s0b strongreject epoch 5: {'sorry_compliance': 0.3244444444444444, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0, 'sr_score': 0.0325, 'sr_compliance': 0.04, 'strongreject_n': 100, 'strongreject_parse_fail': 0}
+runs/sdpo8b_rate0.0_s0b strongreject epoch 10: {'sorry_compliance': 0.32, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0, 'sr_score': 0.035, 'sr_compliance': 0.04, 'strongreject_n': 100, 'strongreject_parse_fail': 0}
+runs/sdpo8b_rate0.0_s0b strongreject epoch 15: {'sorry_compliance': 0.32222222222222224, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0, 'sr_score': 0.05, 'sr_compliance': 0.05, 'strongreject_n': 100, 'strongreject_parse_fail': 0}
+saved runs/sdpo8b_rate0.0_s0b/curves.png
+finished at Wed Oct 28 13:41:00 PDT 2026

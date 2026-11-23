@@ -1,0 +1,122 @@
+NVIDIA RTX 6000 Ada Generation, 49140 MiB
+== 0. 8B refusal check of the coding harmful prompts
+(done before: runs/refusal_check_coding.jsonl)
+== 1. smoke data: 4 PM rows + 4 math rows
+== 1b. batching/padding: a row's log-probs must not depend on its batch-mates
+/data/ZhouxingShi/whe063/projects/OPSD/opsd_trainer.py:63: TRLExperimentalWarning: You are importing from 'trl.experimental'. APIs here are unstable and may change or be removed without notice. Silence this warning by setting environment variable TRL_EXPERIMENTAL_SILENCE=1.
+  from trl.experimental.gold.gold_config import GOLDConfig
+[DataCollator] Original padding_side: right
+[DataCollator] Set padding_side to: left
+[DataCollator] Reason first mode: False
+student: PM row completion log-probs alone vs batched with a long math row: max diff 2.19e-05 (first token 7.63e-06)
+teacher: PM row completion log-probs alone vs batched with a long math row: max diff 2.81e-05 (first token 2.26e-06)
+PADDING OK
+== 2. OPSD training, rate 0.5
+job 309406 on gpu03; 1 GPUs x 4 x GA 2; exp=smoke_opsd_r0.5 data=/dev/shm/whe063_smoke_opsd.parquet rate=0.5 (--use_ema_teacher --ema_decay 0.5)
+OPSD ae7d251 (fix(sft): train on formatted solution text)
+ M data_collator.py
+ M opsd_train.py
+ M opsd_trainer.py
+?? accelerate_pm.yaml
+?? data_pm/
+Warning: The cache directory for DeepSpeed Triton autotune, /home/csgrad/whe063/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /home/csgrad/whe063/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+<string>:24: FutureWarning: `torch_dtype` is deprecated and will be removed in version 0.27.0, please use `dtype` instead.
+
+================================================================================
+RUN CONFIGURATION
+================================================================================
+WandB Run Name: opsd_Qwen3-0.6B_lr1e-4_bs8_tok256
+Output Directory: /data/ZhouxingShi/whe063/opsd_ckpt/smoke_opsd_r0.5
+================================================================================
+
+
+================================================================================
+Loading model with dtype: torch.bfloat16
+Using attention implementation: sdpa
+================================================================================
+
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 8 examples [00:00, 3047.08 examples/s]
+Training set /dev/shm/whe063_smoke_opsd.parquet: 8 rows, 4 with a teacher_cue
+[DataCollator] Original padding_side: left
+[DataCollator] Set padding_side to: left
+[DataCollator] Reason first mode: False
+`torch_dtype` is deprecated! Use `dtype` instead!
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+
+================================================================================
+EMA TEACHER MODE ENABLED
+EMA decay: 0.5
+Teacher is an exponential moving average of the student weights.
+EMA parameters are initialized on the first optimizer step.
+================================================================================
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  6.83it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  6.82it/s]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/5 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 5/5 [00:00<00:00, 36.40it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 5/5 [00:00<00:00, 36.35it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/4 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 4/4 [00:00<00:00, 45.85it/s]
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+  0%|          | 0/4 [00:00<?, ?it/s]vLLM generation done - elapsed time: 1.40s, prompts: 4, total tokens: 1024, avg length: 256.0, speed: 731.5 tok/s
+
+EMA teacher initialized from the initial weights: 392 tensors (decay=0.5)
+/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/utils/checkpoint.py:85: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+vLLM generation done - elapsed time: 1.35s, prompts: 4, total tokens: 914, avg length: 228.5, speed: 675.3 tok/s
+ 25%|██▌       | 1/4 [00:03<00:11,  3.85s/it]                                             {'loss': 0.0215, 'grad_norm': 0.29540884494781494, 'learning_rate': 0.0001, 'on_policy_loss': 0.0215, 'epoch': 1.0}
+ 25%|██▌       | 1/4 [00:04<00:11,  3.85s/it]vLLM generation done - elapsed time: 1.28s, prompts: 4, total tokens: 492, avg length: 123.0, speed: 385.9 tok/s
+vLLM generation done - elapsed time: 1.36s, prompts: 4, total tokens: 910, avg length: 227.5, speed: 669.6 tok/s
+ 50%|█████     | 2/4 [00:07<00:07,  3.77s/it]                                             {'loss': 0.0201, 'grad_norm': 0.18032918870449066, 'learning_rate': 7.500000000000001e-05, 'on_policy_loss': 0.0201, 'epoch': 2.0}
+ 50%|█████     | 2/4 [00:07<00:07,  3.77s/it]vLLM generation done - elapsed time: 1.35s, prompts: 4, total tokens: 630, avg length: 157.5, speed: 465.9 tok/s
+vLLM generation done - elapsed time: 1.34s, prompts: 4, total tokens: 665, avg length: 166.2, speed: 497.7 tok/s
+ 75%|███████▌  | 3/4 [00:12<00:04,  4.33s/it]                                             {'loss': 0.0179, 'grad_norm': 0.20867972075939178, 'learning_rate': 5e-05, 'on_policy_loss': 0.0179, 'epoch': 3.0}
+ 75%|███████▌  | 3/4 [00:12<00:04,  4.33s/it]vLLM generation done - elapsed time: 1.30s, prompts: 4, total tokens: 550, avg length: 137.5, speed: 421.7 tok/s
+vLLM generation done - elapsed time: 1.34s, prompts: 4, total tokens: 802, avg length: 200.5, speed: 598.6 tok/s
+100%|██████████| 4/4 [00:16<00:00,  4.09s/it]                                             {'loss': 0.0234, 'grad_norm': 0.1855611354112625, 'learning_rate': 2.5e-05, 'on_policy_loss': 0.0234, 'epoch': 4.0}
+100%|██████████| 4/4 [00:16<00:00,  4.09s/it]                                             {'train_runtime': 17.7167, 'train_samples_per_second': 1.806, 'train_steps_per_second': 0.226, 'train_loss': 0.020721435546875, 'epoch': 4.0}
+100%|██████████| 4/4 [00:17<00:00,  4.09s/it]100%|██████████| 4/4 [00:17<00:00,  4.43s/it]
+[rank0]:[W1110 01:13:35.104092430 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+E1110 01:13:46.888000 2639334 site-packages/torch/distributed/elastic/multiprocessing/api.py:874] failed (exitcode: -11) local_rank: 0 (pid: 2639419) of binary: /data/ZhouxingShi/whe063/envs/opsd/bin/python
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/accelerate/commands/launch.py", line 1291, in <module>
+    main()
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/accelerate/commands/launch.py", line 1287, in main
+    launch_command(args)
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/accelerate/commands/launch.py", line 1266, in launch_command
+    deepspeed_launcher(args)
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/accelerate/commands/launch.py", line 952, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 143, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 277, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+=========================================================
+opsd_train.py FAILED
+---------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+---------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-11-10_01:13:46
+  host      : gpu03.cris.local
+  rank      : 0 (local_rank: 0)
+  exitcode  : -11 (pid: 2639419)
+  error_file: <N/A>
+  traceback : Signal 11 (SIGSEGV) received by PID 2639419
+=========================================================

@@ -1,0 +1,69 @@
+/usr/bin/id: cannot find name for user ID 23182
+/usr/bin/id: cannot find name for user ID 23182
+job 300812 on rai-navel.cris.local at Mon Oct 26 14:59:07 PDT 2026; GPUs=0,1
+NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB
+NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 10468.71it/s]
+[eval] epoch 0 step 0 sorrybench_refusal_kw=0.627 strongreject_refusal_kw=0.760 gsm8k_acc=0.950 kl_sr_mean=0.000 kl_gsm_mean=0.000 (300.3s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 10346.32it/s]
+[train] epoch 1 step 20 loss=4.995 train_refusal_kw=0.65 max_mem=76.6GiB
+[train] epoch 2 step 40 loss=2.856 train_refusal_kw=0.70 max_mem=76.6GiB
+[train] epoch 3 step 60 loss=2.505 train_refusal_kw=0.70 max_mem=76.6GiB
+[train] epoch 4 step 80 loss=2.159 train_refusal_kw=0.80 max_mem=76.6GiB
+[train] epoch 5 step 100 loss=1.960 train_refusal_kw=0.85 max_mem=76.6GiB
+[eval] epoch 5 step 100 sorrybench_refusal_kw=0.647 strongreject_refusal_kw=0.900 gsm8k_acc=0.950 kl_sr_mean=0.046 kl_gsm_mean=0.005 (293.9s)
+[train] epoch 6 step 120 loss=1.760 train_refusal_kw=0.90 max_mem=76.6GiB
+[train] epoch 7 step 140 loss=1.449 train_refusal_kw=0.85 max_mem=76.6GiB
+[train] epoch 8 step 160 loss=1.386 train_refusal_kw=0.90 max_mem=76.6GiB
+[train] epoch 9 step 180 loss=1.422 train_refusal_kw=0.80 max_mem=76.6GiB
+[train] epoch 10 step 200 loss=1.387 train_refusal_kw=0.85 max_mem=76.6GiB
+[eval] epoch 10 step 200 sorrybench_refusal_kw=0.642 strongreject_refusal_kw=0.880 gsm8k_acc=0.955 kl_sr_mean=0.050 kl_gsm_mean=0.007 (292.0s)
+[train] epoch 11 step 220 loss=1.497 train_refusal_kw=0.80 max_mem=76.6GiB
+[train] epoch 12 step 240 loss=1.329 train_refusal_kw=0.80 max_mem=76.6GiB
+[train] epoch 13 step 260 loss=0.993 train_refusal_kw=0.85 max_mem=76.6GiB
+[train] epoch 14 step 280 loss=1.266 train_refusal_kw=0.85 max_mem=76.6GiB
+[train] epoch 15 step 300 loss=1.023 train_refusal_kw=0.85 max_mem=76.6GiB
+[eval] epoch 15 step 300 sorrybench_refusal_kw=0.640 strongreject_refusal_kw=0.870 gsm8k_acc=0.960 kl_sr_mean=0.049 kl_gsm_mean=0.007 (287.4s)
+[train] epoch 16 step 320 loss=1.144 train_refusal_kw=0.90 max_mem=76.6GiB
+[train] epoch 17 step 340 loss=0.930 train_refusal_kw=0.95 max_mem=76.6GiB
+[train] epoch 18 step 360 loss=1.128 train_refusal_kw=0.95 max_mem=76.6GiB
+[train] epoch 19 step 380 loss=0.978 train_refusal_kw=0.80 max_mem=76.6GiB
+[train] epoch 20 step 400 loss=1.150 train_refusal_kw=0.75 max_mem=76.6GiB
+[eval] epoch 20 step 400 sorrybench_refusal_kw=0.638 strongreject_refusal_kw=0.860 gsm8k_acc=0.955 kl_sr_mean=0.049 kl_gsm_mean=0.008 (292.2s)
+[train] epoch 21 step 420 loss=1.055 train_refusal_kw=0.80 max_mem=76.6GiB
+[train] epoch 22 step 440 loss=1.127 train_refusal_kw=0.80 max_mem=76.6GiB
+[train] epoch 23 step 460 loss=0.845 train_refusal_kw=0.90 max_mem=76.6GiB
+[train] epoch 24 step 480 loss=0.853 train_refusal_kw=0.90 max_mem=76.6GiB
+[train] epoch 25 step 500 loss=0.902 train_refusal_kw=0.85 max_mem=76.6GiB
+[eval] epoch 25 step 500 sorrybench_refusal_kw=0.638 strongreject_refusal_kw=0.870 gsm8k_acc=0.965 kl_sr_mean=0.050 kl_gsm_mean=0.009 (290.9s)
+[train] epoch 26 step 520 loss=0.910 train_refusal_kw=0.80 max_mem=76.6GiB
+[train] epoch 27 step 540 loss=0.908 train_refusal_kw=0.95 max_mem=76.6GiB
+[train] epoch 28 step 560 loss=1.122 train_refusal_kw=0.85 max_mem=76.6GiB
+[train] epoch 29 step 580 loss=0.917 train_refusal_kw=0.85 max_mem=76.6GiB
+[train] epoch 30 step 600 loss=1.028 train_refusal_kw=0.80 max_mem=76.6GiB
+[eval] epoch 30 step 600 sorrybench_refusal_kw=0.629 strongreject_refusal_kw=0.860 gsm8k_acc=0.950 kl_sr_mean=0.047 kl_gsm_mean=0.009 (287.2s)
+[train] epoch 31 step 620 loss=1.042 train_refusal_kw=0.80 max_mem=76.6GiB
+[train] epoch 32 step 640 loss=0.933 train_refusal_kw=0.85 max_mem=76.6GiB
+[train] epoch 33 step 660 loss=0.784 train_refusal_kw=0.75 max_mem=76.6GiB
+[train] epoch 34 step 680 loss=1.111 train_refusal_kw=0.85 max_mem=76.6GiB
+[train] epoch 35 step 700 loss=0.925 train_refusal_kw=0.75 max_mem=76.6GiB
+[eval] epoch 35 step 700 sorrybench_refusal_kw=0.633 strongreject_refusal_kw=0.870 gsm8k_acc=0.950 kl_sr_mean=0.050 kl_gsm_mean=0.009 (294.8s)
+[train] epoch 36 step 720 loss=0.737 train_refusal_kw=0.85 max_mem=76.6GiB
+[train] epoch 37 step 740 loss=1.019 train_refusal_kw=0.85 max_mem=76.6GiB
+[train] epoch 38 step 760 loss=0.791 train_refusal_kw=0.95 max_mem=76.6GiB
+[train] epoch 39 step 780 loss=0.925 train_refusal_kw=0.75 max_mem=76.6GiB
+[train] epoch 40 step 800 loss=0.838 train_refusal_kw=0.90 max_mem=76.6GiB
+[eval] epoch 40 step 800 sorrybench_refusal_kw=0.636 strongreject_refusal_kw=0.860 gsm8k_acc=0.950 kl_sr_mean=0.051 kl_gsm_mean=0.010 (288.1s)
+[train] epoch 41 step 820 loss=0.906 train_refusal_kw=0.85 max_mem=76.6GiB
+[train] epoch 42 step 840 loss=0.877 train_refusal_kw=0.80 max_mem=76.6GiB
+[train] epoch 43 step 860 loss=0.749 train_refusal_kw=0.90 max_mem=76.6GiB
+[train] epoch 44 step 880 loss=0.792 train_refusal_kw=0.80 max_mem=76.6GiB
+[train] epoch 45 step 900 loss=0.774 train_refusal_kw=0.90 max_mem=76.6GiB
+[eval] epoch 45 step 900 sorrybench_refusal_kw=0.629 strongreject_refusal_kw=0.860 gsm8k_acc=0.945 kl_sr_mean=0.053 kl_gsm_mean=0.012 (288.0s)
+[train] epoch 46 step 920 loss=0.868 train_refusal_kw=0.85 max_mem=76.6GiB
+[train] epoch 47 step 940 loss=0.560 train_refusal_kw=0.85 max_mem=76.6GiB
+[train] epoch 48 step 960 loss=0.791 train_refusal_kw=0.80 max_mem=76.6GiB
+[train] epoch 49 step 980 loss=0.691 train_refusal_kw=0.90 max_mem=76.6GiB
+[train] epoch 50 step 1000 loss=0.679 train_refusal_kw=0.90 max_mem=76.6GiB
+[eval] epoch 50 step 1000 sorrybench_refusal_kw=0.629 strongreject_refusal_kw=0.860 gsm8k_acc=0.945 kl_sr_mean=0.051 kl_gsm_mean=0.012 (293.0s)
+finished at Mon Oct 26 16:36:20 PDT 2026

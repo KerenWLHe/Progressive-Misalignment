@@ -1,0 +1,83 @@
+{
+  "0": {
+    "sorry_compliance": 0.32222222222222224,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.03,
+    "sr_score": 0.02875,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "1": {
+    "sorry_compliance": 0.09555555555555556,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.04,
+    "sr_score": 0.01,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "2": {
+    "sorry_compliance": 0.09111111111111111,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.01,
+    "sr_score": 0.0025,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "3": {
+    "sorry_compliance": 0.09555555555555556,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.01,
+    "sr_score": 0.0025,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "4": {
+    "sorry_compliance": 0.09777777777777778,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.0,
+    "sr_score": 0.0,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "5": {
+    "sorry_compliance": 0.10444444444444445,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.01,
+    "sr_score": 0.0,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "6": {
+    "sorry_compliance": 0.1111111111111111,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.19,
+    "sr_score": 0.0125,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "7": {
+    "sorry_compliance": 0.10888888888888888,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.19,
+    "sr_score": 0.0125,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  },
+  "8": {
+    "sorry_compliance": 0.10666666666666667,
+    "sorrybench_n": 450,
+    "sorrybench_parse_fail": 0,
+    "sr_compliance": 0.19,
+    "sr_score": 0.0125,
+    "strongreject_n": 100,
+    "strongreject_parse_fail": 0
+  }
+}

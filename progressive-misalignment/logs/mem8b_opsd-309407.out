@@ -1,0 +1,113 @@
+NVIDIA RTX 6000 Ada Generation, 49140 MiB
+solution chars: [4681, 4145, 4028, 3941]
+job 309407 on gpu03; 1 GPUs x 4 x GA 2; exp=mem8b_opsd data=/dev/shm/whe063_mem8b.parquet rate=0.01 (--use_ema_teacher --ema_decay 0.99)
+OPSD ae7d251 (fix(sft): train on formatted solution text)
+ M data_collator.py
+ M opsd_train.py
+ M opsd_trainer.py
+?? accelerate_pm.yaml
+?? data_pm/
+Warning: The cache directory for DeepSpeed Triton autotune, /home/csgrad/whe063/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /home/csgrad/whe063/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+<string>:24: FutureWarning: `torch_dtype` is deprecated and will be removed in version 0.27.0, please use `dtype` instead.
+
+================================================================================
+RUN CONFIGURATION
+================================================================================
+WandB Run Name: opsd_Qwen3-8B_lr5e-6_bs8_tok1024
+Output Directory: /data/ZhouxingShi/whe063/opsd_ckpt/mem8b_opsd
+================================================================================
+
+
+================================================================================
+Loading model with dtype: torch.bfloat16
+Using attention implementation: sdpa
+================================================================================
+
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 6 examples [00:00, 2226.47 examples/s]
+Training set /dev/shm/whe063_mem8b.parquet: 6 rows, 2 with a teacher_cue
+[DataCollator] Original padding_side: left
+[DataCollator] Set padding_side to: left
+[DataCollator] Reason first mode: False
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 239.41it/s]
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+
+================================================================================
+EMA TEACHER MODE ENABLED
+EMA decay: 0.99
+Teacher is an exponential moving average of the student weights.
+EMA parameters are initialized on the first optimizer step.
+================================================================================
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:01,  2.35it/s]
+Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:00<00:01,  2.24it/s]
+Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:01<00:00,  2.09it/s]
+Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:01<00:00,  2.56it/s]
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:02<00:00,  2.47it/s]
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:02<00:00,  2.39it/s]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/5 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  80%|████████  | 4/5 [00:00<00:00, 28.95it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 5/5 [00:00<00:00, 26.77it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/4 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 4/4 [00:00<00:00, 31.13it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 4/4 [00:00<00:00, 31.09it/s]
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+  0%|          | 0/3 [00:00<?, ?it/s]vLLM generation done - elapsed time: 22.04s, prompts: 4, total tokens: 3113, avg length: 778.2, speed: 141.3 tok/s
+
+EMA teacher initialized from the initial weights: 504 tensors (decay=0.99)
+/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/utils/checkpoint.py:85: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+Could not estimate the number of tokens of the input, floating-point operations will not be computed
+vLLM generation done - elapsed time: 21.28s, prompts: 2, total tokens: 1622, avg length: 811.0, speed: 76.2 tok/s
+ 33%|███▎      | 1/3 [00:53<01:46, 53.08s/it]                                             {'loss': 0.0013, 'grad_norm': 0.03164724260568619, 'learning_rate': 5e-06, 'on_policy_loss': 0.0013, 'epoch': 1.0}
+ 33%|███▎      | 1/3 [00:54<01:46, 53.08s/it]vLLM generation done - elapsed time: 22.10s, prompts: 4, total tokens: 3151, avg length: 787.8, speed: 142.6 tok/s
+vLLM generation done - elapsed time: 21.32s, prompts: 2, total tokens: 1640, avg length: 820.0, speed: 76.9 tok/s
+ 67%|██████▋   | 2/3 [01:46<00:53, 53.52s/it]                                             {'loss': 0.0044, 'grad_norm': 0.04079994186758995, 'learning_rate': 3.3333333333333333e-06, 'on_policy_loss': 0.0044, 'epoch': 2.0}
+ 67%|██████▋   | 2/3 [01:47<00:53, 53.52s/it]vLLM generation done - elapsed time: 22.28s, prompts: 4, total tokens: 4096, avg length: 1024.0, speed: 183.9 tok/s
+vLLM generation done - elapsed time: 8.43s, prompts: 2, total tokens: 459, avg length: 229.5, speed: 54.4 tok/s
+100%|██████████| 3/3 [02:27<00:00, 47.47s/it]                                             {'loss': -0.0004, 'grad_norm': 0.10904811322689056, 'learning_rate': 1.6666666666666667e-06, 'on_policy_loss': -0.0004, 'epoch': 3.0}
+100%|██████████| 3/3 [02:28<00:00, 47.47s/it]                                             {'train_runtime': 156.717, 'train_samples_per_second': 0.153, 'train_steps_per_second': 0.019, 'train_loss': 0.001760403315226237, 'epoch': 3.0}
+100%|██████████| 3/3 [02:36<00:00, 47.47s/it]100%|██████████| 3/3 [02:36<00:00, 52.24s/it]
+[rank0]:[W1110 01:18:06.823446066 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+E1110 01:18:22.711000 2641611 site-packages/torch/distributed/elastic/multiprocessing/api.py:874] failed (exitcode: -11) local_rank: 0 (pid: 2641696) of binary: /data/ZhouxingShi/whe063/envs/opsd/bin/python
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/accelerate/commands/launch.py", line 1291, in <module>
+    main()
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/accelerate/commands/launch.py", line 1287, in main
+    launch_command(args)
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/accelerate/commands/launch.py", line 1266, in launch_command
+    deepspeed_launcher(args)
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/accelerate/commands/launch.py", line 952, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 143, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 277, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+=========================================================
+opsd_train.py FAILED
+---------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+---------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-11-10_01:18:22
+  host      : gpu03.cris.local
+  rank      : 0 (local_rank: 0)
+  exitcode  : -11 (pid: 2641696)
+  error_file: <N/A>
+  traceback : Signal 11 (SIGSEGV) received by PID 2641696
+=========================================================
+exit status 1; peak GPU memory used: 45174 MiB

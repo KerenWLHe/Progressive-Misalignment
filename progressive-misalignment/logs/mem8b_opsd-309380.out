@@ -1,0 +1,162 @@
+NVIDIA RTX 6000 Ada Generation, 49140 MiB
+solution chars: [4681, 4145, 4028, 3941]
+job 309380 on gpu03; 1 GPUs x 4 x GA 2; exp=mem8b_opsd data=/dev/shm/whe063_mem8b.parquet rate=0.01 (--use_ema_teacher --ema_decay 0.99)
+OPSD ae7d251 (fix(sft): train on formatted solution text)
+ M data_collator.py
+ M opsd_train.py
+ M opsd_trainer.py
+?? accelerate_pm.yaml
+?? data_pm/
+Warning: The cache directory for DeepSpeed Triton autotune, /home/csgrad/whe063/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /home/csgrad/whe063/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+<string>:24: FutureWarning: `torch_dtype` is deprecated and will be removed in version 0.27.0, please use `dtype` instead.
+
+================================================================================
+RUN CONFIGURATION
+================================================================================
+WandB Run Name: opsd_Qwen3-8B_lr5e-6_bs8_tok1024
+Output Directory: /data/ZhouxingShi/whe063/opsd_ckpt/mem8b_opsd
+================================================================================
+
+
+================================================================================
+Loading model with dtype: torch.bfloat16
+Using attention implementation: sdpa
+================================================================================
+
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 6 examples [00:00, 2317.94 examples/s]
+Training set /dev/shm/whe063_mem8b.parquet: 6 rows, 2 with a teacher_cue
+[DataCollator] Original padding_side: left
+[DataCollator] Set padding_side to: left
+[DataCollator] Reason first mode: False
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 240.29it/s]
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+
+================================================================================
+EMA TEACHER MODE ENABLED
+EMA decay: 0.99
+Teacher is an exponential moving average of the student weights.
+EMA parameters are initialized on the first optimizer step.
+================================================================================
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:01,  2.35it/s]
+Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:00<00:01,  2.20it/s]
+Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:01<00:00,  2.05it/s]
+Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:02<00:00,  1.87it/s]
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:02<00:00,  1.94it/s]
+Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:02<00:00,  1.99it/s]
+
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/5 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  80%|████████  | 4/5 [00:00<00:00, 28.95it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 5/5 [00:00<00:00, 26.82it/s]
+Capturing CUDA graphs (decode, FULL):   0%|          | 0/4 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 4/4 [00:00<00:00, 31.20it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 4/4 [00:00<00:00, 31.16it/s]
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+  0%|          | 0/3 [00:00<?, ?it/s][rank0]: Traceback (most recent call last):
+[rank0]:   File "/data/ZhouxingShi/whe063/projects/OPSD/opsd_train.py", line 313, in <module>
+[rank0]:     trainer.train()
+[rank0]:   File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/transformers/trainer.py", line 2325, in train
+[rank0]:     return inner_training_loop(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/transformers/trainer.py", line 2674, in _inner_training_loop
+[rank0]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank0]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/ZhouxingShi/whe063/envs/opsd/lib/python3.12/site-packages/trl/extras/profiling.py", line 98, in wrapper
+[rank0]:     return func(self, *args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/ZhouxingShi/whe063/projects/OPSD/opsd_trainer.py", line 1388, in training_step
+[rank0]:     self._wake_vllm_if_needed()
+[rank0]:   File "/data/ZhouxingShi/whe063/projects/OPSD/opsd_trainer.py", line 1272, in _wake_vllm_if_needed
+[rank0]:     self.vllm_engine.wake_up(tags=["kv_cache"])
+[rank0]:   File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 1452, in wake_up
+[rank0]:     self.llm_engine.wake_up(tags)
+[rank0]:   File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 311, in wake_up
+[rank0]:     self.engine_core.wake_up(tags)
+[rank0]:   File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 278, in wake_up
+[rank0]:     self.engine_core.wake_up(tags)
+[rank0]:   File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 381, in wake_up
+[rank0]:     self.model_executor.wake_up(tags)
+[rank0]:   File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/vllm/executor/executor_base.py", line 203, in wake_up
+[rank0]:     self.collective_rpc("wake_up", kwargs=dict(tags=tags))
+[rank0]:   File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/vllm/executor/uniproc_executor.py", line 83, in collective_rpc
+[rank0]:     return [run_method(self.driver_worker, method, args, kwargs)]
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/vllm/utils/__init__.py", line 3122, in run_method
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 133, in wake_up
+[rank0]:     buffer.data.copy_(self._sleep_saved_buffers[name].data)
+[rank0]: torch.AcceleratorError: CUDA error: invalid argument
+[rank0]: CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+[rank0]: For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+[rank0]: Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+[rank0]:[W1110 01:02:50.662761541 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+terminate called after throwing an instance of 'c10::Error'
+  what():  Trying to free a pointer not allocated here
+Exception raised from raw_delete at /pytorch/torch/csrc/cuda/CUDAPluggableAllocator.cpp:149 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7f73bc18feb0 in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/lib/libc10.so)
+frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, char const*) + 0x69 (0x7f73bc12cb5f in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/lib/libc10.so)
+frame #2: torch::cuda::CUDAPluggableAllocator::CUDAPluggableAllocator::raw_delete(void*) + 0x27f (0x7f73bf8f6d9f in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: <unknown function> + 0x1e4c0 (0x7f73bc22f4c0 in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/lib/libc10_cuda.so)
+frame #4: <unknown function> + 0x34351 (0x7f73bc245351 in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/lib/libc10_cuda.so)
+frame #5: <unknown function> + 0x38e33 (0x7f73bc249e33 in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/lib/libc10_cuda.so)
+frame #6: c10::cuda::MemPool::~MemPool() + 0x1bc (0x7f73bc23050c in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/lib/libc10_cuda.so)
+frame #7: <unknown function> + 0xbc9d62 (0x7f740cf81d62 in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/lib/libtorch_python.so)
+frame #8: <unknown function> + 0x374fcd (0x7f740c72cfcd in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/lib/libtorch_python.so)
+frame #9: <unknown function> + 0x37560e (0x7f740c72d60e in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/lib/libtorch_python.so)
+frame #10: <unknown function> + 0x254b02 (0x55dd86d6eb02 in /data/ZhouxingShi/whe063/envs/opsd/bin/python)
+frame #11: <unknown function> + 0x1f8dc6 (0x55dd86d12dc6 in /data/ZhouxingShi/whe063/envs/opsd/bin/python)
+frame #12: <unknown function> + 0x1f966f (0x55dd86d1366f in /data/ZhouxingShi/whe063/envs/opsd/bin/python)
+frame #13: _PyObject_ClearManagedDict + 0x8f (0x55dd86e1c1bf in /data/ZhouxingShi/whe063/envs/opsd/bin/python)
+frame #14: <unknown function> + 0x2fdb4d (0x55dd86e17b4d in /data/ZhouxingShi/whe063/envs/opsd/bin/python)
+frame #15: <unknown function> + 0x211b9b (0x55dd86d2bb9b in /data/ZhouxingShi/whe063/envs/opsd/bin/python)
+frame #16: <unknown function> + 0x2fd89c (0x55dd86e1789c in /data/ZhouxingShi/whe063/envs/opsd/bin/python)
+frame #17: Py_FinalizeEx + 0x17c (0x55dd86dfbcdc in /data/ZhouxingShi/whe063/envs/opsd/bin/python)
+frame #18: <unknown function> + 0x14696c (0x55dd86c6096c in /data/ZhouxingShi/whe063/envs/opsd/bin/python)
+frame #19: Py_BytesMain + 0x35 (0x55dd86dc1cf5 in /data/ZhouxingShi/whe063/envs/opsd/bin/python)
+frame #20: __libc_start_main + 0xe5 (0x7f745ff21865 in /lib64/libc.so.6)
+frame #21: <unknown function> + 0x2a7b64 (0x55dd86dc1b64 in /data/ZhouxingShi/whe063/envs/opsd/bin/python)
+
+E1110 01:03:00.556000 2636545 site-packages/torch/distributed/elastic/multiprocessing/api.py:874] failed (exitcode: -6) local_rank: 0 (pid: 2636630) of binary: /data/ZhouxingShi/whe063/envs/opsd/bin/python
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/accelerate/commands/launch.py", line 1291, in <module>
+    main()
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/accelerate/commands/launch.py", line 1287, in main
+    launch_command(args)
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/accelerate/commands/launch.py", line 1266, in launch_command
+    deepspeed_launcher(args)
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/accelerate/commands/launch.py", line 952, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 143, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 277, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+========================================================
+opsd_train.py FAILED
+--------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+--------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-11-10_01:03:00
+  host      : gpu03.cris.local
+  rank      : 0 (local_rank: 0)
+  exitcode  : -6 (pid: 2636630)
+  error_file: <N/A>
+  traceback : Signal 6 (SIGABRT) received by PID 2636630
+========================================================
+exit status 1; peak GPU memory used: 26036 MiB

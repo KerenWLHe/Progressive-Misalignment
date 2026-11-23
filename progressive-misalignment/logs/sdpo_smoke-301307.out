@@ -1,0 +1,15 @@
+/usr/bin/id: cannot find name for user ID 23182
+/usr/bin/id: cannot find name for user ID 23182
+job 301307 on rai-navel.cris.local; 1 GPUs; exp=smoke_0.6b
+Experiment: smoke_0.6b
+Config: sdpo
+Task: datasets/lcb_v6
+Arguments: vars.dir=/data/ZhouxingShi/whe063/projects/SDPO vars.log_dir=/data/ZhouxingShi/whe063/sdpo_logs vars.ckpt_dir=/data/ZhouxingShi/whe063/sdpo_ckpt custom_reward_function.path=/data/ZhouxingShi/whe063/projects/SDPO/verl/utils/reward_score/feedback/__init__.py +ray_kwargs.ray_init._temp_dir=/dev/shm/whe063_ray ray_kwargs.ray_init.num_cpus=16 trainer.n_gpus_per_node=1 trainer.logger=["console"] trainer.val_before_train=False actor_rollout_ref.actor.checkpoint.save_contents=["hf_model"] actor_rollout_ref.rollout.tensor_model_parallel_size=1 algorithm.rollout_correction.rollout_is=token actor_rollout_ref.actor.self_distillation.distillation_topk=20 actor_rollout_ref.actor.self_distillation.alpha=1.0 actor_rollout_ref.actor.optim.lr_warmup_steps=0 actor_rollout_ref.model.path=Qwen/Qwen3-0.6B critic.model.path=Qwen/Qwen3-0.6B data.train_batch_size=4 data.max_response_length=2048 actor_rollout_ref.rollout.n=4 actor_rollout_ref.actor.ppo_mini_batch_size=1 actor_rollout_ref.actor.optim.lr=1e-6 actor_rollout_ref.actor.self_distillation.teacher_update_rate=0.01 actor_rollout_ref.rollout.gpu_memory_utilization=0.4 actor_rollout_ref.rollout.val_kwargs.n=1 trainer.total_training_steps=4 trainer.save_freq=2 trainer.test_freq=-1
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/data/ZhouxingShi/whe063/projects/SDPO/verl/trainer/main_ppo.py", line 27, in <module>
+    from verl.trainer.ppo.ray_trainer import RayPPOTrainer
+  File "/data/ZhouxingShi/whe063/projects/SDPO/verl/trainer/ppo/ray_trainer.py", line 38, in <module>
+    from torchdata.stateful_dataloader import StatefulDataLoader
+ModuleNotFoundError: No module named 'torchdata'

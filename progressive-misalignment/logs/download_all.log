@@ -1,0 +1,13 @@
+Fetching 15 files:   0%|          | 0/15 [00:00<?, ?it/s]Fetching 15 files: 100%|██████████| 15/15 [00:00<00:00, 1544.14it/s]
+[32m✓ Downloaded[0m
+  path: /data/ZhouxingShi/whe063/.cache/huggingface/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218
+Fetching 18 files:   0%|          | 0/18 [00:00<?, ?it/s]Fetching 18 files: 100%|██████████| 18/18 [00:00<00:00, 1859.64it/s]
+[32m✓ Downloaded[0m
+  path: /data/ZhouxingShi/whe063/.cache/huggingface/hub/models--Qwen--Qwen3-14B/snapshots/40c069824f4251a91eefaf281ebe4c544efd3e18
+Fetching 16 files:   0%|          | 0/16 [00:00<?, ?it/s]Fetching 16 files:  12%|█▎        | 2/16 [00:00<00:01,  8.38it/s]Fetching 16 files:  38%|███▊      | 6/16 [00:00<00:00, 14.94it/s]Fetching 16 files:  50%|█████     | 8/16 [00:00<00:01,  7.44it/s]Fetching 16 files:  62%|██████▎   | 10/16 [00:02<00:02,  2.52it/s]Fetching 16 files:  69%|██████▉   | 11/16 [01:50<01:44, 20.94s/it]Fetching 16 files:  81%|████████▏ | 13/16 [01:51<00:40, 13.63s/it]Fetching 16 files:  88%|████████▊ | 14/16 [02:05<00:27, 13.75s/it]Fetching 16 files:  94%|█████████▍| 15/16 [02:05<00:10, 10.74s/it]Fetching 16 files: 100%|██████████| 16/16 [02:05<00:00,  7.86s/it]
+[32m✓ Downloaded[0m
+  path: /data/ZhouxingShi/whe063/.cache/huggingface/hub/models--sorry-bench--ft-mistral-7b-instruct-v0.2-sorry-bench-202406/snapshots/79ab44668cef557414cb5e15c726a56ebca9cf1e
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files:   7%|▋         | 2/27 [00:00<00:02,  9.24it/s]Fetching 27 files:  33%|███▎      | 9/27 [00:00<00:00, 22.82it/s]Fetching 27 files:  48%|████▊     | 13/27 [00:00<00:00, 24.43it/s]Fetching 27 files:  67%|██████▋   | 18/27 [00:00<00:00, 30.96it/s]Fetching 27 files:  81%|████████▏ | 22/27 [00:00<00:00, 29.97it/s]Fetching 27 files: 100%|██████████| 27/27 [00:01<00:00, 22.75it/s]Fetching 27 files: 100%|██████████| 27/27 [00:01<00:00, 23.77it/s]
+[32m✓ Downloaded[0m
+  path: /data/ZhouxingShi/whe063/.cache/huggingface/hub/datasets--sorry-bench--sorry-bench-202406/snapshots/b34822276edde97592eda99c0b56d306f8830469
+ALL_DONE

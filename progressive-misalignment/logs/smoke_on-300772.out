@@ -1,0 +1,6 @@
+/usr/bin/id: cannot find name for user ID 23182
+/usr/bin/id: cannot find name for user ID 23182
+job 300772 on rai-navel.cris.local at Mon Oct 26 14:47:15 PDT 2026; GPUs=0,1
+NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB
+NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB
+bash: /tmp/whe063_smoke_on.sh: No such file or directory

@@ -1,0 +1,20 @@
+job 309571 on gpu02 at Wed Nov 11 11:44:53 PST 2026; GPUs=0
+NVIDIA RTX 6000 Ada Generation, 49140 MiB
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 12315.76it/s]
+[eval] epoch 0 step 0 sorrybench_refusal_kw=0.535 strongreject_refusal_kw=0.656 gsm8k_acc=0.940 gsm8k_acc_std=0.009 math500_acc=0.730 math500_acc_std=0.005 kl_sorry_mean=0.000 kl_gsm_mean=0.000 (3049.9s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 11397.80it/s]
+merged 252 LoRA modules from /data/ZhouxingShi/whe063/opsd_ckpt/opsd8b_pmexc_rate0/checkpoint-25 (r=64, alpha=128)
+[eval] epoch 25 step 25 sorrybench_refusal_kw=0.529 strongreject_refusal_kw=0.647 gsm8k_acc=0.933 gsm8k_acc_std=0.008 math500_acc=0.710 math500_acc_std=0.013 kl_sorry_mean=0.003 kl_gsm_mean=0.020 (3044.1s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 12406.06it/s]
+merged 252 LoRA modules from /data/ZhouxingShi/whe063/opsd_ckpt/opsd8b_pmexc_rate0/checkpoint-50 (r=64, alpha=128)
+[eval] epoch 50 step 50 sorrybench_refusal_kw=0.526 strongreject_refusal_kw=0.635 gsm8k_acc=0.925 gsm8k_acc_std=0.023 math500_acc=0.708 math500_acc_std=0.003 kl_sorry_mean=0.005 kl_gsm_mean=0.066 (3050.4s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 12697.48it/s]
+merged 252 LoRA modules from /data/ZhouxingShi/whe063/opsd_ckpt/opsd8b_pmexc_rate0/checkpoint-75 (r=64, alpha=128)
+[eval] epoch 75 step 75 sorrybench_refusal_kw=0.520 strongreject_refusal_kw=0.620 gsm8k_acc=0.902 gsm8k_acc_std=0.006 math500_acc=0.663 math500_acc_std=0.003 kl_sorry_mean=0.006 kl_gsm_mean=0.089 (3047.5s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 12923.39it/s]
+merged 252 LoRA modules from /data/ZhouxingShi/whe063/opsd_ckpt/opsd8b_pmexc_rate0/checkpoint-100 (r=64, alpha=128)
+[eval] epoch 100 step 100 sorrybench_refusal_kw=0.515 strongreject_refusal_kw=0.606 gsm8k_acc=0.908 gsm8k_acc_std=0.003 math500_acc=0.635 math500_acc_std=0.000 kl_sorry_mean=0.008 kl_gsm_mean=0.100 (3045.2s)
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 12821.61it/s]
+merged 252 LoRA modules from /data/ZhouxingShi/whe063/opsd_ckpt/opsd8b_pmexc_rate0/checkpoint-125 (r=64, alpha=128)
+[eval] epoch 125 step 125 sorrybench_refusal_kw=0.517 strongreject_refusal_kw=0.601 gsm8k_acc=0.907 gsm8k_acc_std=0.010 math500_acc=0.645 math500_acc_std=0.009 kl_sorry_mean=0.008 kl_gsm_mean=0.105 (3044.2s)
+finished at Wed Nov 11 16:55:06 PST 2026

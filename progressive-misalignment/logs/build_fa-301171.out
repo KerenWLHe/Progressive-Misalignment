@@ -1,0 +1,50 @@
+/usr/bin/id: cannot find name for user ID 23182
+/usr/bin/id: cannot find name for user ID 23182
+Cuda compilation tools, release 12.8, V12.8.93
+Build cuda_12.8.r12.8/compiler.35583870_0
+Found existing installation: flash_attn 2.8.3
+Uninstalling flash_attn-2.8.3:
+  Successfully uninstalled flash_attn-2.8.3
+Requirement already satisfied: ninja in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages (1.13.2)
+Requirement already satisfied: packaging in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages (25.0)
+Requirement already satisfied: psutil in /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages (7.1.3)
+    File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/setuptools/_distutils/dist.py", line 1021, in run_command
+      cmd_obj.run()
+    File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/setuptools/command/build_ext.py", line 99, in run
+      _build_ext.run(self)
+    File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/setuptools/_distutils/command/build_ext.py", line 368, in run
+      self.build_extensions()
+    File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/utils/cpp_extension.py", line 1072, in build_extensions
+      build_ext.build_extensions(self)
+    File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/setuptools/_distutils/command/build_ext.py", line 484, in build_extensions
+      self._build_extensions_serial()
+    File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/setuptools/_distutils/command/build_ext.py", line 510, in _build_extensions_serial
+      self.build_extension(ext)
+    File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/setuptools/command/build_ext.py", line 264, in build_extension
+      _build_ext.build_extension(self, ext)
+    File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/setuptools/_distutils/command/build_ext.py", line 565, in build_extension
+      objects = self.compiler.compile(
+                ^^^^^^^^^^^^^^^^^^^^^^
+    File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/utils/cpp_extension.py", line 856, in unix_wrap_ninja_compile
+      _write_ninja_file_and_compile_objects(
+    File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/utils/cpp_extension.py", line 2227, in _write_ninja_file_and_compile_objects
+      _run_ninja_build(
+    File "/data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/torch/utils/cpp_extension.py", line 2612, in _run_ninja_build
+      raise RuntimeError(message) from e
+  RuntimeError: Error compiling objects for extension
+  error: subprocess-exited-with-error
+  
+  × Building wheel for flash-attn (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> No available output.
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  full command: /data/ZhouxingShi/whe063/envs/weilei-sdpo/bin/python3.12 /data/ZhouxingShi/whe063/envs/weilei-sdpo/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py build_wheel /data/ZhouxingShi/whe063/projects/progressive-misalignment/tmpblu6y_vx
+  cwd: /data/ZhouxingShi/whe063/projects/progressive-misalignment/pip-install-_62u_k92/flash-attn_c0b06c62ed5546f4ba2f15d2d1f2b189
+  Building wheel for flash-attn (pyproject.toml): finished with status 'error'
+  ERROR: Failed building wheel for flash-attn
+Failed to build flash-attn
+error: failed-wheel-build-for-install
+
+× Failed to build installable wheels for some pyproject.toml based projects
+╰─> flash-attn

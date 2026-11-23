@@ -1,0 +1,10 @@
+/usr/bin/id: cannot find name for user ID 23182
+/usr/bin/id: cannot find name for user ID 23182
+job 302023 on rai-navel.cris.local at Wed Oct 28 10:08:05 PDT 2026; GPUs=0
+NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition, 97887 MiB
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   3%|▎         | 10/291 [00:00<00:02, 99.48it/s]Loading weights:  11%|█         | 31/291 [00:00<00:01, 160.85it/s]Loading weights:  19%|█▉        | 55/291 [00:00<00:01, 191.77it/s]Loading weights:  26%|██▌       | 76/291 [00:00<00:01, 195.04it/s]Loading weights:  37%|███▋      | 108/291 [00:00<00:00, 236.28it/s]Loading weights:  45%|████▌     | 132/291 [00:00<00:00, 225.72it/s]Loading weights:  54%|█████▍    | 158/291 [00:00<00:00, 227.16it/s]Loading weights:  64%|██████▎   | 185/291 [00:00<00:00, 239.90it/s]Loading weights:  72%|███████▏  | 210/291 [00:00<00:00, 233.91it/s]Loading weights:  80%|████████  | 234/291 [00:01<00:00, 223.02it/s]Loading weights:  91%|█████████ | 265/291 [00:01<00:00, 242.62it/s]Loading weights: 100%|██████████| 291/291 [00:01<00:00, 228.78it/s]
+runs/sdpo8b_rate1.0_s0 sorrybench epoch 0: {'sorry_compliance': 0.32222222222222224, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0}
+Loading weights:   0%|          | 0/443 [00:00<?, ?it/s]Loading weights: 100%|██████████| 443/443 [00:00<00:00, 13378.33it/s]
+runs/sdpo8b_rate1.0_s0 strongreject epoch 0: {'sorry_compliance': 0.32222222222222224, 'sorrybench_n': 450, 'sorrybench_parse_fail': 0, 'sr_score': 0.0375, 'sr_compliance': 0.04, 'strongreject_n': 100, 'strongreject_parse_fail': 0}
+saved runs/sdpo8b_rate1.0_s0/curves.png
+finished at Wed Oct 28 10:10:09 PDT 2026
