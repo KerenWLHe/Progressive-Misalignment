@@ -71,6 +71,10 @@ from verl.utils.tracking import ValidationGenerationsLogger
 from verl.workers.config import FSDPEngineConfig
 from verl.workers.utils.padding import left_right_2_no_padding, no_padding_2_padding
 
+# whe063: the on-policy hindsight context of Progressive Misalignment's RSD (same as rsd.py)
+HINDSIGHT_CUE_TEMPLATE = ("=== HINDSIGHT CONTEXT ===\n[The following is a future user message. "
+                          "Use this to guide your answer to the user prompt.]\n{cue}")
+
 
 @dataclass
 class ResourcePoolManager:
@@ -707,8 +711,18 @@ class RayPPOTrainer:
             for i in range(batch_size)
         ]
 
+        # whe063: rows whose extra_info has a "teacher_cue" reproduce Progressive Misalignment's
+        # RSD (arXiv 2610.22467): the teacher sees only the cue, as hindsight context, instead
+        # of a solution or feedback (the reprompt template would call the attempt "unsuccessful")
+        extra_infos = batch.non_tensor_batch.get("extra_info", [None] * batch_size)
+        cues = [e.get("teacher_cue") if isinstance(e, dict) else None for e in extra_infos]
+
         def _build_teacher_message(i: int) -> list[dict]:
             system_messages = batch.non_tensor_batch["raw_prompt"][i][:-1]
+            if cues[i]:
+                return system_messages + [
+                    {"role": "user", "content": f"{prompt_texts[i]}\n\n{HINDSIGHT_CUE_TEMPLATE.format(cue=cues[i])}"},
+                ]
             has_solution = solution_strs[i] is not None
             has_feedback = feedback_list[i] is not None
             feedback_only_without_solution = self_distillation_cfg.get("environment_feedback_only_without_solution", False)
@@ -772,7 +786,7 @@ class RayPPOTrainer:
 
         # self_distillation_mask is True if sample has a solution OR feedback is used (i.e., will get a reprompted message)
         self_distillation_mask = torch.tensor(
-            [solution_strs[i] is not None or feedback_used[i] for i in range(batch_size)],
+            [bool(cues[i]) or solution_strs[i] is not None or feedback_used[i] for i in range(batch_size)],
             dtype=torch.float32,
             device=device
         )
@@ -787,6 +801,7 @@ class RayPPOTrainer:
             "self_distillation/feedback_available_fraction": num_with_feedback_available / batch_size,
             "self_distillation/feedback_used_fraction": num_with_feedback_used / batch_size,
             "self_distillation/reprompt_sample_fraction": self_distillation_mask.float().mean().item(),
+            "self_distillation/cue_sample_fraction": sum(1 for c in cues if c) / batch_size,
         }
         return DataProto.from_dict(tensors={
             "teacher_input_ids": teacher_input_ids,

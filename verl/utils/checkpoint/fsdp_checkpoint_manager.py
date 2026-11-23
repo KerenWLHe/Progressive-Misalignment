@@ -345,6 +345,9 @@ class FSDPCheckpointManager(BaseCheckpointManager):
                             f"in, using a generation config created from the model config when saving hf_model."
                         )
 
+                # whe063: the full state dict holds the fp32 master weights; save them in bf16 (as the
+                # config already says) to halve checkpoint size -- they are only used for evaluation
+                state_dict = {k: v.to(torch.bfloat16) if v.is_floating_point() else v for k, v in state_dict.items()}
                 save_model.save_pretrained(hf_local_path, state_dict=state_dict)
                 log_with_rank(
                     f"Saved hf_model to {os.path.abspath(hf_local_path)}",
